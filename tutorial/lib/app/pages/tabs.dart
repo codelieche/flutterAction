@@ -1,8 +1,8 @@
 /**
- * App的首页
- * 主要是包含了底部的导航，以及各导航指向啥页面
+ * App的首屏
  */
 import 'package:flutter/material.dart';
+
 import 'package:tutorial/app/variables.dart';
 // 导入页面
 import 'home/index.dart';
@@ -10,20 +10,20 @@ import 'widget/index.dart';
 import 'page/index.dart';
 import 'user/index.dart';
 
-import 'routers.dart';
+class AppHomeTabs extends StatefulWidget {
 
-// app的主体颜色: 放入variables.dart中
-//Color AppPrimaryColor = Color.fromRGBO(74, 144, 226, 1);
+  int currentIndex;  // 当前选中的导航bar的索引
 
+  // 构造方法
+  AppHomeTabs({Key key, this.currentIndex=0}):super(key:key);
 
-class AppHomePage extends StatefulWidget {
   @override
-  _AppHomePageState createState() => _AppHomePageState();
+  _AppHomeTabsState createState() => _AppHomeTabsState();
 }
 
+class _AppHomeTabsState extends State<AppHomeTabs> {
 
-class _AppHomePageState extends State<AppHomePage> {
-  int _currentBarIndex = 1;  // 当前选中的导航bar的索引
+  int _currentBarIndex;           // 当前选中的导航bar的索引
   List<Widget> _bodyPages = [];  // 导航bar对应的页面
 
   @override
@@ -39,6 +39,10 @@ class _AppHomePageState extends State<AppHomePage> {
       UserIndexPage(),
     ];
     print("init state");
+
+    setState(() {
+      _currentBarIndex = widget.currentIndex;
+    });
   }
 
   @override
@@ -49,8 +53,8 @@ class _AppHomePageState extends State<AppHomePage> {
       currentIndex: _currentBarIndex,  // 当前选中的bar
       items: [          // 底部导航的tab选项
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text("首页")
+            icon: Icon(Icons.home),
+            title: Text("首页")
         ),
         BottomNavigationBarItem(  // 基本组件的使用示例
           icon: Icon(Icons.widgets),
@@ -72,7 +76,6 @@ class _AppHomePageState extends State<AppHomePage> {
           _currentBarIndex = index;
         });
       },
-
       iconSize: 24.0,                            // 图标icon的大小
       selectedFontSize: 12,                      // 选中的文字大小: 默认是14
       unselectedFontSize: 12,                    // 未选中的文字大小：默认是12
@@ -81,7 +84,7 @@ class _AppHomePageState extends State<AppHomePage> {
     );
 
     // 首页的脚手架页面
-    Scaffold homeScaffold = Scaffold(
+    Scaffold appRouteTabsScaffold = Scaffold(
 //      appBar: AppBar(
 //        backgroundColor: AppPrimaryColor,
 //        title: Text("运维平台"),
@@ -99,18 +102,8 @@ class _AppHomePageState extends State<AppHomePage> {
 //          color: Colors.white,
 //        ),
 //      ),
-
     );
 
-    // 返回
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,  // 默认是true，是否在模拟器右上角显示个debug标识
-      theme: ThemeData(
-        primaryColor: AppPrimaryColor,
-      ),
-      // home: homeScaffold,
-      initialRoute: "/",   // 初始化的时候加载的路由
-      onGenerateRoute: onGenerateRoute,
-    );
+    return appRouteTabsScaffold;
   }
 }

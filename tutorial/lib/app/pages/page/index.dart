@@ -8,21 +8,28 @@ class PageDemoIndexPage extends StatefulWidget {
 
 class _PageDemoIndexPageState extends State<PageDemoIndexPage> {
 
-  // 脚手架
-  Scaffold scaffold = Scaffold(
-    appBar: AppBar(
-      backgroundColor: Colors.pinkAccent,
-      title: Text("页面示例", style: TextStyle(color: Colors.white),),
-      elevation: 0.0,  // 阴影，默认是4.0
-    ),
-    body: Center(
-      child: Text("页面示例"),
-    ),
-  );
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: scaffold,
+    // 脚手架
+    Scaffold scaffold = Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.pinkAccent,
+        title: Text("页面示例", style: TextStyle(color: Colors.white),),
+        elevation: 0.0,  // 阴影，默认是4.0
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: (){
+            Navigator.pushNamed(context, "/page/404");
+          },
+          child: Text("演示404"),
+        ),
+      ),
     );
+
+//    return Container(
+//      child: scaffold,
+//    );
+      return scaffold;
   }
 }
