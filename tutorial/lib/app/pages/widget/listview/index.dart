@@ -18,6 +18,9 @@ class _ListViewWidgetIndexPageState extends State<ListViewWidgetIndexPage> {
       appBar: AppBar(
         title: Text("ListView"),
       ),
+      body: Center(
+        child: Text("Hello List View"),
+      ),
     );
 
     // 返回
