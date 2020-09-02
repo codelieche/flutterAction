@@ -19,6 +19,7 @@ import 'container/index.dart';
 import 'row/index.dart';
 import 'column/index.dart';
 import 'wrap/index.dart';
+import 'expanded/index.dart';
 import 'stack/index.dart';
 import 'positioned/index.dart';
 import 'card/index.dart';
@@ -42,11 +43,11 @@ Map<String, Function> widgetRoutes = {
   "/widget/row/index": (context) => RowWidgetIndexPage(),
   "/widget/column/index": (context) => ColumnWidgetIndexPage(),
   "/widget/wrap/index": (context) => WrapWidgetIndexPage(),
+  "/widget/expanded/index": (context) => ExpandedWidgetIndexPage(),
   "/widget/stack/index": (context) => StackWidgetIndexPage(),
   "/widget/positioned/index": (context) => PositionedWidgetIndexPage(),
   "/widget/card/index": (context) => CardWidgetIndexPage(),
 
   // 复杂组件
   "/widget/scaffold/index": (context) => ScaffoldWidgetIndexPage(),
-
 };

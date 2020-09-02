@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 
 class ScaffoldWidgetIndexPage extends StatefulWidget {
   @override
-  _ScaffoldWidgetIndexPageState createState() => _ScaffoldWidgetIndexPageState();
+  _ScaffoldWidgetIndexPageState createState() =>
+      _ScaffoldWidgetIndexPageState();
 }
 
 class _ScaffoldWidgetIndexPageState extends State<ScaffoldWidgetIndexPage> {
@@ -16,6 +17,7 @@ class _ScaffoldWidgetIndexPageState extends State<ScaffoldWidgetIndexPage> {
       appBar: AppBar(
         title: Text("Scaffold"),
       ),
+      body: Text("scaffold"),
     );
 
     return scaffold;
