@@ -10,6 +10,8 @@ import 'widthHeightColor.dart';
 import 'alignment.dart';
 // padding and margin
 import 'paddingMargin.dart';
+// decoration
+import 'decoration.dart';
 
 class ContainerWidgetIndexPage extends StatefulWidget {
   @override
@@ -51,6 +53,16 @@ class _ContainerWidgetIndexPageState extends State<ContainerWidgetIndexPage> {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (BuildContext context) {
                 return ContainerPaddingMarginDemo();
+              }));
+            }),
+        Divider(),
+        ListTile(
+            leading: Icon(Icons.arrow_right),
+            title: Text("decoration: 装饰"),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return ContainerDecorationDemo();
               }));
             }),
         Divider(),

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 // 引入首页
 import 'package:tutorial/app/pages/home.dart';
+import '../variables.dart';
 
 // app启动基本过渡页
 class BaseSplashPage extends StatefulWidget {
@@ -15,7 +16,6 @@ class BaseSplashPage extends StatefulWidget {
 }
 
 class _BaseSplashPageState extends State<BaseSplashPage> {
-
   // 计时器
   Timer _t;
 
@@ -24,17 +24,18 @@ class _BaseSplashPageState extends State<BaseSplashPage> {
   void initState() {
     super.initState();
     // 初始化定时器
-    _t = new Timer(const Duration(milliseconds: 2000), (){
+    _t = new Timer(const Duration(milliseconds: 2000), () {
       // 2秒钟之后，跳转主页
       print("Hello splash");
-      try{
-        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-          builder: (BuildContext context) => AppHomePage(),
-        ), (route) => route == null);
-      }catch(e){
+      try {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (BuildContext context) => AppHomePage(),
+            ),
+            (route) => route == null);
+      } catch (e) {
         print(e);
       }
-
     });
   }
 
@@ -47,27 +48,29 @@ class _BaseSplashPageState extends State<BaseSplashPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Color.fromRGBO(74, 144, 226, 1),
+      // color: Color.fromRGBO(74, 144, 226, 1),
+      color: AppPrimaryColor,
       child: Padding(
-        padding: EdgeInsets.only(top: 150),
-        child: Column(
-          children: [
-            Text("编程列车", style: TextStyle(
-                fontSize: 36,
-                color: Colors.white,
-                fontWeight: FontWeight.w500)
-            ),
-            Container(
-              height: 10,
-            ),
-            Text("flutter tutorial", style: TextStyle(
-              fontSize: 14,
-              color: Colors.white,
-              fontWeight: FontWeight.w400
-            ),)
-          ],
-        )
-      ),
+          padding: EdgeInsets.only(top: 150),
+          child: Column(
+            children: [
+              Text("编程列车",
+                  style: TextStyle(
+                      fontSize: 36,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500)),
+              Container(
+                height: 10,
+              ),
+              Text(
+                "flutter tutorial",
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400),
+              )
+            ],
+          )),
     );
   }
 }
