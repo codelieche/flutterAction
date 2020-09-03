@@ -15,45 +15,56 @@ class RowWidgetIndexPage extends StatefulWidget {
 
 class _RowWidgetIndexPageState extends State<RowWidgetIndexPage>
     with SingleTickerProviderStateMixin {
-  // tab选择的index
-  int _currentIndex = 0;
-  TabBar _tabBar;
-  TabController _tabController;
-  VoidCallback _onChange;
+  int _currentIndex = 0; // 当前选中的tab的index
+  List<Widget> _tabs = []; // tab列表
+  TabBar _tabBar; // TabBar
+  TabController _tabController; // Tab控制器
+  VoidCallback _onChange; // TabController监听的事件
 
   @override
   void initState() {
     super.initState();
-    _tabController =
-        TabController(length: 3, vsync: this, initialIndex: _currentIndex);
+    // tabs
+    _tabs = [
+      Tab(
+        text: "基本使用",
+      ),
+      Tab(
+        text: "主(横)轴对其",
+      ),
+      Tab(
+        text: "辅(纵)轴对其",
+      ),
+    ];
 
+    // 实例化Tab控制器
+    _tabController = TabController(
+        initialIndex: _currentIndex, length: _tabs.length, vsync: this);
+
+    // 当Tab变更的时候处理函数
     _onChange = () {
-      print(this._tabController.index);
+      // print(this._tabController.index);
+      if (_currentIndex != this._tabController.index) {
+        setState(() {
+          _currentIndex = this._tabController.index;
+        });
+      }
     };
-
-    // 监听事件
+    // Tab控制器监听事件
     _tabController.addListener(_onChange);
-  }
 
-  @override
-  Widget build(BuildContext context) {
     // tabBar
     _tabBar = TabBar(
       labelColor: AppPrimaryColor,
       unselectedLabelColor: Colors.grey[600],
-      tabs: [
-        Tab(
-          text: "基本使用",
-        ),
-        Tab(
-          text: "主(横)轴对其",
-        ),
-        Tab(
-          text: "辅(纵)轴对其",
-        ),
-      ],
+      tabs: _tabs,
       isScrollable: true, // 是否可滑动
+      controller: _tabController,
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     Scaffold scaffold = Scaffold(
       appBar: AppBar(
         title: Text("Row"),
@@ -64,20 +75,24 @@ class _RowWidgetIndexPageState extends State<RowWidgetIndexPage>
           // 使用Flex + Expanded + Containerr
           child: Flex(direction: Axis.horizontal, children: [
             Expanded(
-                child: Container(
-              color: Colors.white,
-              child: _tabBar,
-            ))
+              child: Container(
+                color: Colors.white,
+                child: _tabBar,
+              ),
+            )
           ]),
         ),
       ),
-      body: TabBarView(children: [
-        RowBaseDemoPage(),
-        RowMainAxisDemoPage(),
-        RowCrossAxisDemoPage(),
-      ]),
+      body: TabBarView(
+        children: [
+          RowBaseDemoPage(),
+          RowMainAxisDemoPage(),
+          RowCrossAxisDemoPage(),
+        ],
+        controller: _tabController,
+      ),
     );
 
-    return DefaultTabController(length: 3, child: scaffold);
+    return DefaultTabController(length: _tabs.length, child: scaffold);
   }
 }

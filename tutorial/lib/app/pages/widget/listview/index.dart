@@ -17,24 +17,38 @@ class ListViewWidgetIndexPage extends StatefulWidget {
 
 class _ListViewWidgetIndexPageState extends State<ListViewWidgetIndexPage>
     with SingleTickerProviderStateMixin {
-  int _currentIndex = 0;
-  TabBar tabBar;
-  TabController _tabController;
-  VoidCallback _onChange;
+  int _currentIndex = 0; // 当前选中的tab的index
+  List<Widget> _tabs = []; // tab列表
+  TabBar _tabBar; // TabBar
+  TabController _tabController; // Tab控制器
+  VoidCallback _onChange; // TabController监听的事件
 
   @override
   void initState() {
     super.initState();
 
+    // tabs
+    _tabs = [
+      Tab(
+        text: "基本使用",
+      ),
+      Tab(
+        text: "示例1",
+      ),
+    ];
+
     // TabController
-    _tabController =
-        TabController(initialIndex: _currentIndex, length: 2, vsync: this);
+    _tabController = TabController(
+        initialIndex: _currentIndex, length: _tabs.length, vsync: this);
 
     // onChange
     _onChange = () {
-      setState(() {
-        _currentIndex = _tabController.index;
-      });
+      // print(this._tabController.index);
+      if (_currentIndex != this._tabController.index) {
+        setState(() {
+          _currentIndex = this._tabController.index;
+        });
+      }
     };
 
     _tabController.addListener(_onChange);
@@ -43,17 +57,10 @@ class _ListViewWidgetIndexPageState extends State<ListViewWidgetIndexPage>
   @override
   Widget build(BuildContext context) {
     // tabBar
-    tabBar = TabBar(
+    _tabBar = TabBar(
       labelColor: AppPrimaryColor,
       unselectedLabelColor: Colors.grey[600],
-      tabs: [
-        Tab(
-          text: "基本使用",
-        ),
-        Tab(
-          text: "示例1",
-        ),
-      ],
+      tabs: _tabs,
       isScrollable: true, // 默认是false
       controller: _tabController,
     );
@@ -70,18 +77,21 @@ class _ListViewWidgetIndexPageState extends State<ListViewWidgetIndexPage>
             Expanded(
                 child: Container(
               color: Colors.white,
-              child: tabBar,
+              child: _tabBar,
             ))
           ]),
         ),
       ),
-      body: TabBarView(controller: _tabController, children: [
-        ListViewBaseDemoPage(),
-        ListViewDemo01Page(),
-      ]),
+      body: TabBarView(
+        children: [
+          ListViewBaseDemoPage(),
+          ListViewDemo01Page(),
+        ],
+        controller: _tabController,
+      ),
     );
 
     // 返回
-    return DefaultTabController(length: 2, child: scaffold);
+    return DefaultTabController(length: _tabs.length, child: scaffold);
   }
 }
