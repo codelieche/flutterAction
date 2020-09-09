@@ -1,10 +1,12 @@
-/**
- * Stack相关的组件示例
- * 路由：/widget/stack/index
- */
+// Stack相关的组件示例
+// 路由：/widget/stack/index
 import 'package:flutter/material.dart';
-import 'package:tutorial/app/pages/widget/stack/base.dart';
 import 'package:tutorial/app/variables.dart';
+
+// 基本使用
+import 'base.dart';
+// 结合align使用
+import 'complex.dart';
 
 class StackWidgetIndexPage extends StatefulWidget {
   @override
@@ -64,7 +66,7 @@ class _StackWidgetIndexPageState extends State<StackWidgetIndexPage>
     // 脚手架页面
     Scaffold scaffold = Scaffold(
       appBar: AppBar(
-        title: Text("Row"),
+        title: Text("Stack"),
         elevation: 1.0,
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(48),
@@ -83,7 +85,7 @@ class _StackWidgetIndexPageState extends State<StackWidgetIndexPage>
       body: TabBarView(
         children: [
           StackBaseDemoPage(),
-          Text("Hello Stack"),
+          StackAComplexlignDemoPage(),
         ],
         controller: _tabController,
       ),
