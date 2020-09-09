@@ -23,6 +23,7 @@ import 'expanded/index.dart';
 import 'stack/index.dart';
 import 'positioned/index.dart';
 import 'card/index.dart';
+import 'other/index.dart';
 
 // complex: 复杂组件
 import 'scaffold/index.dart';
@@ -47,6 +48,7 @@ Map<String, Function> widgetRoutes = {
   "/widget/stack/index": (context) => StackWidgetIndexPage(),
   "/widget/positioned/index": (context) => PositionedWidgetIndexPage(),
   "/widget/card/index": (context) => CardWidgetIndexPage(),
+  "/widget/other/index": (context) => OtherWidgetIndexPage(),
 
   // 复杂组件
   "/widget/scaffold/index": (context) => ScaffoldWidgetIndexPage(),

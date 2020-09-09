@@ -81,6 +81,15 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
           Navigator.pushNamed(context, "/widget/card/index");
         },
       ),
+      Divider(),
+      ListTile(
+        leading: Icon(Icons.arrow_right),
+        title: Text("other: 其它"),
+        onTap: () {
+          // 跳转去Wrap首页
+          Navigator.pushNamed(context, "/widget/other/index");
+        },
+      ),
     ];
     return ListView(
       children: layoutList,

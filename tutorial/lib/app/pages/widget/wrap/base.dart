@@ -77,6 +77,18 @@ class _WrapBaseDemoPageState extends State<WrapBaseDemoPage> {
 
         // 设置间隔
         SimpleTitleWidget(
+          title: "设置纵向间隔",
+          description: "runSpacing: 20",
+        ),
+        Wrap(
+          direction: Axis.horizontal,
+          crossAxisAlignment: WrapCrossAlignment.end,
+          runSpacing: 20,
+          children: items,
+        ),
+
+        // 设置间隔
+        SimpleTitleWidget(
           title: "纵向排列",
           description: "direction: Axis.vertical",
         ),
