@@ -5,6 +5,10 @@ import 'package:tutorial/app/variables.dart';
 
 // 引入各种按钮
 import 'raisedButton.dart';
+import 'flatButton.dart';
+import 'outlineButton.dart';
+import 'buttonBar.dart';
+import 'floatingActionButton.dart';
 
 class ButtonWidgetIndexPage extends StatefulWidget {
   @override
@@ -26,6 +30,7 @@ class _ButtonWidgetIndexPageState extends State<ButtonWidgetIndexPage>
     _tabs = [
       Tab(text: "RaisedButton"), // 凸起按钮
       Tab(text: "FlatButton"), // 扁平按钮
+      Tab(text: "OutLineButton"), // 线宽按钮
       Tab(text: "IconButton"), // 图标按钮
       Tab(text: "ButtonBar"), // 按钮组
       Tab(text: "FloatingActionButton") // 浮动按钮
@@ -86,10 +91,11 @@ class _ButtonWidgetIndexPageState extends State<ButtonWidgetIndexPage>
         controller: _tabController,
         children: [
           RaisedButtonDemoPage(),
-          Text("1"),
-          Text("1"),
-          Text("1"),
-          Text("1"),
+          FlatButtonDemoPage(),
+          OutLineButtonDemoPage(),
+          Text("IconButton主要用于appBar的actions"),
+          ButtonBarDemoPage(),
+          FloatingActionButtonDemoPage(),
         ],
       ),
     );
