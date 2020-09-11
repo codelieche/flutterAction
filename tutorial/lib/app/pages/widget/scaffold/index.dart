@@ -3,6 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial/app/components/items/title.dart';
 
+// 顶部导航示例
+import 'appBar/color.dart';
+import 'appBar/leading.dart';
+import 'appBar/actions.dart';
+
 // 底部导航示例：
 import 'bottomNavigationBar/demo01.dart';
 
@@ -26,12 +31,47 @@ class _ScaffoldWidgetIndexPageState extends State<ScaffoldWidgetIndexPage> {
         // 示例列表
         Wrap(
           children: [
-            // 示例1：
+            // 示例1: 设置颜色
             RaisedButton(
               onPressed: () {
-                print("示例1");
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (BuildContext context) {
+                  return ScaffoldAppBarSetColorDemo();
+                }));
               },
-              highlightColor: Colors.white,
+              child: Text("设置颜色"),
+              textColor: Colors.white,
+              color: Colors.pinkAccent,
+            ),
+
+            SizedBox(width: 20),
+
+            // 示例2: 设置左边菜单
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (BuildContext context) {
+                  return ScaffoldAppBarLeadingDemo();
+                }));
+              },
+              child: Text("设置左边菜单"),
+              textColor: Colors.white,
+              color: Colors.lightBlue,
+            ),
+
+            SizedBox(width: 20),
+
+            // 示例3: 设置右边菜单
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (BuildContext context) {
+                  return ScaffoldAppBarAcitonsDemo();
+                }));
+              },
+              child: Text("设置右侧菜单"),
+              textColor: Colors.white,
+              color: Colors.green,
             ),
           ],
         ),
