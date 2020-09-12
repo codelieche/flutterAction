@@ -12,19 +12,27 @@ class _ComplexWidgetIndexPageState extends State<ComplexWidgetIndexPage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> widgetList = [
+      // Scaffold:
       ListTile(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_right),
-        ),
+        leading: Icon(Icons.arrow_right),
         title: Text("Scaffold: 脚手架"),
-        onTap: (){
+        onTap: () {
           // 跳转去Column首页
           Navigator.pushNamed(context, "/widget/scaffold/index");
         },
       ),
-
       Divider(),
 
+      // Dialog
+      ListTile(
+        leading: Icon(Icons.arrow_right),
+        title: Text("Dialog: 会话框"),
+        onTap: () {
+          // 跳转去Column首页
+          Navigator.pushNamed(context, "/widget/dialog/index");
+        },
+      ),
+      Divider(),
     ];
 
     // 返回个列表容器
