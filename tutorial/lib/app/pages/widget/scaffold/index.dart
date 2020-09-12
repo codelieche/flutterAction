@@ -10,6 +10,8 @@ import 'appBar/actions.dart';
 
 // 底部导航示例：
 import 'bottomNavigationBar/demo01.dart';
+import 'bottomNavigationBar/demo02.dart';
+import 'bottomNavigationBar/demo03.dart';
 
 class ScaffoldWidgetIndexPage extends StatefulWidget {
   @override
@@ -95,6 +97,26 @@ class _ScaffoldWidgetIndexPageState extends State<ScaffoldWidgetIndexPage> {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (BuildContext ctx) {
               return BottomNavigationBarDemoPage01();
+            }));
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          title: Text("bottomNavigationBar:示例02"),
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (BuildContext ctx) {
+              return BottomNavigationBarDemoPage02();
+            }));
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          title: Text("不规则底部导航:示例03"),
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (BuildContext ctx) {
+              return BottomNavigationBarDemoPage03();
             }));
           },
         ),
