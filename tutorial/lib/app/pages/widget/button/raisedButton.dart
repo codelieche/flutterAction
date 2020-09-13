@@ -159,7 +159,7 @@ class _RaisedButtonDemoPageState extends State<RaisedButtonDemoPage> {
               textColor: Colors.white,
             )),
           ],
-        )
+        ),
       ],
     );
     return SingleChildScrollView(

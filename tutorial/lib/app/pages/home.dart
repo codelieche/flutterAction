@@ -7,7 +7,7 @@ import 'package:tutorial/app/variables.dart';
 // 导入页面
 import 'home/index.dart';
 import 'widget/index.dart';
-import 'page/index.dart';
+import 'page/pageDemoThirdIndex.dart';
 import 'user/index.dart';
 
 import 'routers.dart';
@@ -15,27 +15,24 @@ import 'routers.dart';
 // app的主体颜色: 放入variables.dart中
 //Color AppPrimaryColor = Color.fromRGBO(74, 144, 226, 1);
 
-
 class AppHomePage extends StatefulWidget {
   @override
   _AppHomePageState createState() => _AppHomePageState();
 }
 
-
 class _AppHomePageState extends State<AppHomePage> {
-  int _currentBarIndex = 1;  // 当前选中的导航bar的索引
-  List<Widget> _bodyPages = [];  // 导航bar对应的页面
+  int _currentBarIndex = 1; // 当前选中的导航bar的索引
+  List<Widget> _bodyPages = []; // 导航bar对应的页面
 
   @override
   void initState() {
-
     super.initState();
 
     // app的初始化页面
     _bodyPages = [
       HomeIndexPage(),
       WidgetIndexPage(),
-      PageDemoIndexPage(),
+      PageDemoThirdIndexPage(),
       UserIndexPage(),
     ];
     print("init state");
@@ -43,20 +40,19 @@ class _AppHomePageState extends State<AppHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     // 底部导航的bar
     BottomNavigationBar appNavigationBar = BottomNavigationBar(
-      currentIndex: _currentBarIndex,  // 当前选中的bar
-      items: [          // 底部导航的tab选项
+      currentIndex: _currentBarIndex, // 当前选中的bar
+      items: [
+        // 底部导航的tab选项
+        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text("首页")
-        ),
-        BottomNavigationBarItem(  // 基本组件的使用示例
+          // 基本组件的使用示例
           icon: Icon(Icons.widgets),
           title: Text("组件示例"),
         ),
-        BottomNavigationBarItem(  // 整个页面的示例：比如：登录页、注册、用户也等
+        BottomNavigationBarItem(
+          // 整个页面的示例：比如：登录页、注册、用户也等
           icon: Icon(Icons.code),
           title: Text("页面示例"),
         ),
@@ -64,20 +60,21 @@ class _AppHomePageState extends State<AppHomePage> {
           icon: Icon(Icons.account_circle),
           title: Text("用户中心"),
         ),
-      ],  // 导航bar列表
+      ], // 导航bar列表
 
-      onTap: (index){   // 切换底部导航
+      onTap: (index) {
+        // 切换底部导航
         setState(() {
           // 设置新的选中导航bar
           _currentBarIndex = index;
         });
       },
 
-      iconSize: 24.0,                            // 图标icon的大小
-      selectedFontSize: 12,                      // 选中的文字大小: 默认是14
-      unselectedFontSize: 12,                    // 未选中的文字大小：默认是12
-      fixedColor: AppPrimaryColor,               // 选中的颜色
-      type: BottomNavigationBarType.fixed,       // 配置底部bars可以有多个按钮
+      iconSize: 24.0, // 图标icon的大小
+      selectedFontSize: 12, // 选中的文字大小: 默认是14
+      unselectedFontSize: 12, // 未选中的文字大小：默认是12
+      fixedColor: AppPrimaryColor, // 选中的颜色
+      type: BottomNavigationBarType.fixed, // 配置底部bars可以有多个按钮
     );
 
     // 首页的脚手架页面
@@ -87,8 +84,8 @@ class _AppHomePageState extends State<AppHomePage> {
 //        title: Text("运维平台"),
 //        elevation: 0.0,                       // 阴影，默认是4.0
 //      ),
-      body: _bodyPages[_currentBarIndex],     // 主体内容
-      bottomNavigationBar: appNavigationBar,  // 底部导航
+      body: _bodyPages[_currentBarIndex], // 主体内容
+      bottomNavigationBar: appNavigationBar, // 底部导航
 //      floatingActionButton: FloatingActionButton(
 //        onPressed: (){
 //          print("add 点击了");
@@ -99,17 +96,16 @@ class _AppHomePageState extends State<AppHomePage> {
 //          color: Colors.white,
 //        ),
 //      ),
-
     );
 
     // 返回
     return MaterialApp(
-      debugShowCheckedModeBanner: false,  // 默认是true，是否在模拟器右上角显示个debug标识
+      debugShowCheckedModeBanner: false, // 默认是true，是否在模拟器右上角显示个debug标识
       theme: ThemeData(
         primaryColor: AppPrimaryColor,
       ),
       // home: homeScaffold,
-      initialRoute: "/",   // 初始化的时候加载的路由
+      initialRoute: "/", // 初始化的时候加载的路由
       onGenerateRoute: onGenerateRoute,
     );
   }

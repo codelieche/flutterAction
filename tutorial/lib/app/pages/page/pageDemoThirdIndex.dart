@@ -1,22 +1,15 @@
-// 按钮相关的组件
-// 路由：/widget/button/index
 import 'package:flutter/material.dart';
-import 'package:tutorial/app/variables.dart';
+// 引入页面、Demo、第三方库首页
+import 'index.dart';
+import '../demo/index.dart';
+import '../third/index.dart';
 
-// 引入各种按钮
-import 'raisedButton.dart';
-import 'flatButton.dart';
-import 'outlineButton.dart';
-import 'buttonBar.dart';
-import 'floatingActionButton.dart';
-import 'inkWell.dart';
-
-class ButtonWidgetIndexPage extends StatefulWidget {
+class PageDemoThirdIndexPage extends StatefulWidget {
   @override
-  _ButtonWidgetIndexPageState createState() => _ButtonWidgetIndexPageState();
+  _PageDemoThirdIndexPageState createState() => _PageDemoThirdIndexPageState();
 }
 
-class _ButtonWidgetIndexPageState extends State<ButtonWidgetIndexPage>
+class _PageDemoThirdIndexPageState extends State<PageDemoThirdIndexPage>
     with SingleTickerProviderStateMixin {
   int _currentIndex = 0; // 当前选中的tab的index
   List<Widget> _tabs = []; // tab列表
@@ -27,25 +20,24 @@ class _ButtonWidgetIndexPageState extends State<ButtonWidgetIndexPage>
   @override
   void initState() {
     super.initState();
-    // _tabs
+    // tabs
     _tabs = [
-      Tab(text: "RaisedButton"), // 凸起按钮
-      Tab(text: "FlatButton"), // 扁平按钮
-      Tab(text: "OutLineButton"), // 线宽按钮
-      Tab(text: "IconButton"), // 图标按钮
-      Tab(text: "ButtonBar"), // 按钮组
-      Tab(text: "FloatingActionButton"), // 浮动按钮
-      Tab(text: "InkWell") // InkWell
+      Tab(
+        text: "页面",
+      ),
+      Tab(
+        text: "Demo",
+      ),
+      Tab(
+        text: "第三方库",
+      ),
     ];
 
     // 实例化Tab控制器
     _tabController = TabController(
-      initialIndex: _currentIndex,
-      length: _tabs.length,
-      vsync: this,
-    );
+        initialIndex: _currentIndex, length: _tabs.length, vsync: this);
 
-    // 当前Tab变更的时候处理函数
+    // 当Tab变更的时候处理函数
     _onChange = () {
       // print(this._tabController.index);
       if (_currentIndex != this._tabController.index) {
@@ -54,16 +46,15 @@ class _ButtonWidgetIndexPageState extends State<ButtonWidgetIndexPage>
         });
       }
     };
-
     // Tab控制器监听事件
     _tabController.addListener(_onChange);
 
     // tabBar
     _tabBar = TabBar(
-      labelColor: AppPrimaryColor,
+      labelColor: Colors.pinkAccent,
       unselectedLabelColor: Colors.grey[600],
       tabs: _tabs,
-      isScrollable: true, // 是否可滑动
+      // isScrollable: true, // 是否可滑动
       controller: _tabController,
     );
   }
@@ -79,8 +70,9 @@ class _ButtonWidgetIndexPageState extends State<ButtonWidgetIndexPage>
     // 脚手架
     Scaffold scaffold = Scaffold(
       appBar: AppBar(
-        title: Text("Button"),
-        elevation: 1.0,
+        backgroundColor: Colors.pinkAccent,
+        title: Text("示例", style: TextStyle(color: Colors.white)),
+        elevation: 1.0, // 阴影，默认是4.0
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(48),
           // 因为会设置可滚动，那么需要让里面的container填充整个横向：
@@ -96,19 +88,19 @@ class _ButtonWidgetIndexPageState extends State<ButtonWidgetIndexPage>
         ),
       ),
       body: TabBarView(
-        controller: _tabController,
         children: [
-          RaisedButtonDemoPage(),
-          FlatButtonDemoPage(),
-          OutLineButtonDemoPage(),
-          Text("IconButton主要用于appBar的actions"),
-          ButtonBarDemoPage(),
-          FloatingActionButtonDemoPage(),
-          InkWellDemoPage(),
+          PageIndexPage(),
+          DemoIndexPage(),
+          ThirdIndexPage(),
         ],
+        controller: _tabController,
       ),
     );
 
-    return DefaultTabController(length: _tabs.length, child: scaffold);
+    // 返回
+    return DefaultTabController(
+      length: _tabs.length,
+      child: scaffold,
+    );
   }
 }
