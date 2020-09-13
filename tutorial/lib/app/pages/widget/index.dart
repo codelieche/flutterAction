@@ -12,10 +12,17 @@ class WidgetIndexPage extends StatefulWidget {
   _WidgetIndexPageState createState() => _WidgetIndexPageState();
 }
 
-class _WidgetIndexPageState extends State<WidgetIndexPage> {
-  List<Widget> _tabs = [];
+class _WidgetIndexPageState extends State<WidgetIndexPage>
+    with SingleTickerProviderStateMixin {
+  int _currentIndex = 0; // 当前选中的tab的index
+  List<Widget> _tabs = []; // Tab列表
+  TabBar _tabBar; // TabBar
+  TabController _tabController; // Tab控制器
+  VoidCallback _onChange; // TabController监听的事件
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     // tabs：
     _tabs = [
       Tab(
@@ -38,16 +45,43 @@ class _WidgetIndexPageState extends State<WidgetIndexPage> {
         text: "测试组件",
       )
     ];
+
+    // 实例化Tab控制器
+    _tabController = TabController(
+        initialIndex: _currentIndex, length: _tabs.length, vsync: this);
+
+    // 当Tab变更的时候处理函数
+    _onChange = () {
+      // print(this._tabController.index);
+      if (_currentIndex != this._tabController.index) {
+        setState(() {
+          _currentIndex = this._tabController.index;
+        });
+      }
+    };
+    // Tab控制器监听事件
+    _tabController.addListener(_onChange);
+
     // 头部的tabBar
-    TabBar tabBar = TabBar(
-      unselectedLabelColor: Colors.grey[600],
+    _tabBar = TabBar(
       labelColor: AppPrimaryColor,
+      unselectedLabelColor: Colors.grey[600],
       indicatorSize: TabBarIndicatorSize.tab, // 指示器大小，默认是tab
       indicatorColor: Colors.lightBlue,
       isScrollable: true, // 默认是false, 当很多tab的时候就设置为true
       tabs: _tabs,
+      controller: _tabController,
     );
+  }
 
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     // 脚手架
     Scaffold scaffold = Scaffold(
       appBar: AppBar(
@@ -65,7 +99,7 @@ class _WidgetIndexPageState extends State<WidgetIndexPage> {
           "组件示例",
           style: TextStyle(color: AppPrimaryColor),
         ),
-        bottom: tabBar,
+        bottom: _tabBar,
         bottomOpacity: 1.0,
         elevation: 1.0,
       ),
@@ -77,6 +111,7 @@ class _WidgetIndexPageState extends State<WidgetIndexPage> {
           ComplexWidgetIndexPage(), // 复杂组件
           BaseComponentIndexPage(),
         ],
+        controller: _tabController,
       ),
     );
 

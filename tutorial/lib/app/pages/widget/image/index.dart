@@ -63,6 +63,7 @@ class _ImageWidgetIndexPageState extends State<ImageWidgetIndexPage>
 
   @override
   void dispose() {
+    _tabController.dispose();
     super.dispose();
   }
 

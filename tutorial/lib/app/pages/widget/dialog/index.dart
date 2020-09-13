@@ -69,6 +69,12 @@ class _DialogIndexPageState extends State<DialogIndexPage>
   }
 
   @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // 主体内容
     Widget _tabBarView = TabBarView(

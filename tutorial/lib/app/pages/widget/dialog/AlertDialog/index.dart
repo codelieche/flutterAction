@@ -15,7 +15,12 @@ class AlertDialogIndexPage extends StatefulWidget {
   _AlertDialogIndexPageState createState() => _AlertDialogIndexPageState();
 }
 
-class _AlertDialogIndexPageState extends State<AlertDialogIndexPage> {
+class _AlertDialogIndexPageState extends State<AlertDialogIndexPage>
+    with AutomaticKeepAliveClientMixin {
+  // 继承了AutomaticKeepAliveClientMixin后，需要实现的方法
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
     // 主体内容

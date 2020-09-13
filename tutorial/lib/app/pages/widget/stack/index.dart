@@ -62,6 +62,12 @@ class _StackWidgetIndexPageState extends State<StackWidgetIndexPage>
   }
 
   @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // 脚手架页面
     Scaffold scaffold = Scaffold(

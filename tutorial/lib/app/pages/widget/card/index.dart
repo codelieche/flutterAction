@@ -60,6 +60,12 @@ class _CardWidgetIndexPageState extends State<CardWidgetIndexPage>
   }
 
   @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // 脚手架页面
     Scaffold scaffold = Scaffold(

@@ -68,6 +68,12 @@ class _ColumnWidgetIndexPageState extends State<ColumnWidgetIndexPage>
   }
 
   @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // 脚手架
     Scaffold scaffold = Scaffold(

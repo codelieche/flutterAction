@@ -64,6 +64,12 @@ class _RowWidgetIndexPageState extends State<RowWidgetIndexPage>
   }
 
   @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Scaffold scaffold = Scaffold(
       appBar: AppBar(

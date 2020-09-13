@@ -55,6 +55,12 @@ class _ListViewWidgetIndexPageState extends State<ListViewWidgetIndexPage>
   }
 
   @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // tabBar
     _tabBar = TabBar(
