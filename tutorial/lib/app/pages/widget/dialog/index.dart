@@ -5,6 +5,14 @@ import 'package:tutorial/app/variables.dart';
 
 // AlertDialog
 import 'AlertDialog/index.dart';
+// SimpleDialog
+import 'simpleDialog/index.dart';
+// showModalBottomSheet
+import 'showModalBottomSheet/index.dart';
+// showToast
+import 'showToast/index.dart';
+// snackBar
+import 'snackBar/index.dart';
 
 class DialogIndexPage extends StatefulWidget {
   DialogIndexPage({Key key}) : super(key: key);
@@ -66,10 +74,10 @@ class _DialogIndexPageState extends State<DialogIndexPage>
     Widget _tabBarView = TabBarView(
       children: [
         AlertDialogIndexPage(),
-        Text("data"),
-        Text("data"),
-        Text("data"),
-        Text("data"),
+        SimpleDialogIndexPage(),
+        ShowModalBottomSheetIndexPage(),
+        ShowToastIndexPage(),
+        SnackBarIndexPage(),
       ],
       controller: _tabController,
     );
