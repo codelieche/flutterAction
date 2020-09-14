@@ -33,12 +33,11 @@ class _DioBaseDemoPageState extends State<DioBaseDemoPage>
   dioAddCookieManager() async {
     Directory tempDir = await getTemporaryDirectory();
     String tempPath = tempDir.path;
-
-    print("cookieJar: tempDir: $tempPath");
+    print("获取到的临时目录位置: $tempPath");
 
     Directory appDocDir = await getApplicationDocumentsDirectory();
     String appDocPath = appDocDir.path;
-    print("appDocPath: $appDocPath");
+    // print("appDocPath: $appDocPath");
 
     // 实例化CookieJar
     cookieJar = PersistCookieJar(dir: "$appDocPath/cookies");

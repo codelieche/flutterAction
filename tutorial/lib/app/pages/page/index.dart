@@ -13,7 +13,7 @@ class _PageIndexPageState extends State<PageIndexPage> {
     Widget body = Center(
       child: RaisedButton(
         onPressed: () {
-          Navigator.pushNamed(context, "/page/404");
+          Navigator.pushNamed(context, "/page/error/404");
         },
         child: Text("演示404"),
       ),

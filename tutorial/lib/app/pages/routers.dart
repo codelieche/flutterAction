@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'tabs.dart';
 import 'home/index.dart';
 import 'widget/index.dart';
-import 'page/pageDemoThirdIndex.dart';
+// import 'page/pageDemoThirdIndex.dart';
 import 'user/index.dart';
 
 // 引入子路由
@@ -21,7 +21,7 @@ Map<String, Function> routes = {
       AppHomeTabs(currentIndex: arguments != null ? arguments : 0),
   "/home": (context) => HomeIndexPage(),
   "/widget": (context) => WidgetIndexPage(),
-  "/page": (context) => PageDemoThirdIndexPage(),
+  // "/page": (context) => PageDemoThirdIndexPage(),
   "/user": (context) => UserIndexPage(),
 };
 
