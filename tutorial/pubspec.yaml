@@ -36,6 +36,7 @@ dependencies:
   cookie_jar: ^1.0.0
   dio_cookie_manager: ^1.0.0
   path_provider: ^1.6.14
+  shared_preferences: ^0.5.10
   fluttertoast: ^7.1.0
   event_bus: ^1.1.1
 

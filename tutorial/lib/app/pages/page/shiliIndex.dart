@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 // 引入页面、Demo、第三方库首页
+import '../common/index.dart';
 import 'index.dart';
 import '../demo/index.dart';
 import '../third/index.dart';
@@ -22,6 +23,9 @@ class _PageDemoThirdIndexPageState extends State<PageDemoThirdIndexPage>
     super.initState();
     // tabs
     _tabs = [
+      Tab(
+        text: "常用",
+      ),
       Tab(
         text: "页面",
       ),
@@ -89,6 +93,7 @@ class _PageDemoThirdIndexPageState extends State<PageDemoThirdIndexPage>
       ),
       body: TabBarView(
         children: [
+          CommonIndexPage(),
           PageIndexPage(),
           DemoIndexPage(),
           ThirdIndexPage(),

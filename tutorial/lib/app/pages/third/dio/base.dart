@@ -31,9 +31,9 @@ class _DioBaseDemoPageState extends State<DioBaseDemoPage>
       text: '{"username": "admin", "password": "password"}');
 
   dioAddCookieManager() async {
-    Directory tempDir = await getTemporaryDirectory();
-    String tempPath = tempDir.path;
-    print("获取到的临时目录位置: $tempPath");
+//    Directory tempDir = await getTemporaryDirectory();
+//    String tempPath = tempDir.path;
+//    print("获取到的临时目录位置: $tempPath");
 
     Directory appDocDir = await getApplicationDocumentsDirectory();
     String appDocPath = appDocDir.path;

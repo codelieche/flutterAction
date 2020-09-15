@@ -11,6 +11,7 @@ import 'user/index.dart';
 
 // 引入子路由
 import 'widget/routers.dart';
+import 'common/routers.dart';
 import "page/routers.dart";
 import 'third/routers.dart';
 
@@ -27,7 +28,12 @@ Map<String, Function> routes = {
 
 var addAllRoutesLock = false; // 添加路由的锁
 // 子页面路由：方便管理
-List<Map<String, Function>> subRoutes = [widgetRoutes, pageRoutes, thridRoutes];
+List<Map<String, Function>> subRoutes = [
+  widgetRoutes,
+  commonRoutes,
+  pageRoutes,
+  thridRoutes,
+];
 
 Function onGenerateRoute = (RouteSettings settings) {
   final String name = settings.name; // 路由配置中的名字，比如：/home

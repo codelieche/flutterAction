@@ -7,7 +7,7 @@ import 'package:tutorial/app/variables.dart';
 // 导入页面
 import 'home/index.dart';
 import 'widget/index.dart';
-import 'page/pageDemoThirdIndex.dart';
+import 'page/shiliIndex.dart';
 import 'user/index.dart';
 
 class AppHomeTabs extends StatefulWidget {
