@@ -31,8 +31,10 @@ class _SharedPreferencesBaseDemoPageState
 
   @override
   void dispose() {
-    _keyInputController.dispose();
-    _valueInputController.dispose();
+    // _keyInputController.clear();
+    // _valueInputController.clear();
+    // _keyInputController.dispose();
+    // _valueInputController.dispose();
     super.dispose();
   }
 
@@ -185,7 +187,7 @@ class _SharedPreferencesBaseDemoPageState
                             controller: _valueInputController,
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
 
