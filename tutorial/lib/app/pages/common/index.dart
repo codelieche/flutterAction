@@ -17,12 +17,31 @@ class _CommonIndexPageState extends State<CommonIndexPage> {
         ListTile(
           leading: Icon(Icons.arrow_right),
           title: Text("拍照/获取照片"),
-          subtitle: Text("image"),
+          subtitle: Text("image_picker"),
+          onTap: () {
+            Navigator.of(context).pushNamed("/common/imagepicker/index");
+          },
         ),
         ListTile(
           leading: Icon(Icons.arrow_right),
           title: Text("地图定位"),
           subtitle: Text("amap_location"),
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          title: Text("WebView"),
+          subtitle: Text("webview: flutter_webview"),
+          onTap: () {
+            Navigator.of(context).pushNamed("/common/webview/index");
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          title: Text("打开外部应用"),
+          subtitle: Text("url_launcher: 网页、电话等"),
+          onTap: () {
+            Navigator.of(context).pushNamed("/common/urllancher/index");
+          },
         ),
         ListTile(
           leading: Icon(Icons.arrow_right),
