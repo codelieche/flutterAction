@@ -3,6 +3,9 @@
 
 import 'test1.dart';
 
+// 屏幕适配
+import 'screenadapter/index.dart';
+
 // 错误页面
 import 'errors/403.dart';
 import 'errors/404.dart';
@@ -10,7 +13,12 @@ import 'errors/50x.dart';
 
 // 配置的路由
 Map<String, Function> pageRoutes = {
+  // 示例页面001
   "/page/001": (content) => Page001(),
+
+  // 屏幕适配
+  "/page/screenadapter/index": (context) => ScreenAdapterIndexPage(),
+
   // 错误页
   "/page/error/403": (context) => ErrorPage403(),
   "/page/error/404": (context) => ErrorPage404(),

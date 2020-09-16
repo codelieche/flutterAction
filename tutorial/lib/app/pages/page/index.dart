@@ -10,13 +10,23 @@ class _PageIndexPageState extends State<PageIndexPage> {
   @override
   Widget build(BuildContext context) {
     // 主体内容
-    Widget body = Center(
-      child: RaisedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, "/page/error/404");
-        },
-        child: Text("演示404"),
-      ),
+    Widget body = ListView(
+      children: [
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          onTap: () {
+            Navigator.pushNamed(context, "/page/error/404");
+          },
+          title: Text("演示404"),
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          onTap: () {
+            Navigator.pushNamed(context, "/page/screenadapter/index");
+          },
+          title: Text("屏幕适配"),
+        )
+      ],
     );
 
     // 返回
