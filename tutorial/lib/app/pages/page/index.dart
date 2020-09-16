@@ -22,6 +22,13 @@ class _PageIndexPageState extends State<PageIndexPage> {
         ListTile(
           leading: Icon(Icons.arrow_right),
           onTap: () {
+            Navigator.pushNamed(context, "/page/user/index");
+          },
+          title: Text("用户相关页"),
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          onTap: () {
             Navigator.pushNamed(context, "/page/screenadapter/index");
           },
           title: Text("屏幕适配"),

@@ -3,6 +3,9 @@
 
 import 'test1.dart';
 
+// 用户页
+import 'user/index.dart';
+
 // 屏幕适配
 import 'screenadapter/index.dart';
 
@@ -15,6 +18,9 @@ import 'errors/50x.dart';
 Map<String, Function> pageRoutes = {
   // 示例页面001
   "/page/001": (content) => Page001(),
+
+  // 用户页
+  "/page/user/index": (context) => UserIndexPage(),
 
   // 屏幕适配
   "/page/screenadapter/index": (context) => ScreenAdapterIndexPage(),
