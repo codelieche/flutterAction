@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 // 引入示例1
 import './demo01.dart';
+import './demo02.dart';
 
 class UserCenterIndexPage extends StatefulWidget {
   UserCenterIndexPage({Key key}) : super(key: key);
@@ -25,6 +26,16 @@ class _UserCenterIndexPageState extends State<UserCenterIndexPage> {
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
               return UserCenterDemo01();
+            }));
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          title: Text("用户中心示例2"),
+          subtitle: Text("username、password、button"),
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+              return UserCenterDemo02();
             }));
           },
         ),
