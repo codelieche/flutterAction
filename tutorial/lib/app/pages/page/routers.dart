@@ -9,6 +9,9 @@ import 'user/index.dart';
 // 屏幕适配
 import 'screenadapter/index.dart';
 
+// 下拉刷新、上拉加载
+import 'reFreshReload/index.dart';
+
 // 错误页面
 import 'errors/403.dart';
 import 'errors/404.dart';
@@ -18,6 +21,9 @@ import 'errors/50x.dart';
 Map<String, Function> pageRoutes = {
   // 示例页面001
   "/page/001": (content) => Page001(),
+
+  // 下拉刷新上拉加载
+  "/page/refreshreload/index": (context) => ReFreshReloadIndexPage(),
 
   // 用户页
   "/page/user/index": (context) => UserIndexPage(),

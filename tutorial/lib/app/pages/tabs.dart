@@ -11,7 +11,7 @@ import 'page/shiliIndex.dart';
 import 'user/index.dart';
 
 class AppHomeTabs extends StatefulWidget {
-  int currentIndex; // 当前选中的导航bar的索引
+  final int currentIndex; // 当前选中的导航bar的索引
 
   // 构造方法
   AppHomeTabs({Key key, this.currentIndex = 0}) : super(key: key);
@@ -23,10 +23,14 @@ class AppHomeTabs extends StatefulWidget {
 class _AppHomeTabsState extends State<AppHomeTabs> {
   int _currentBarIndex; // 当前选中的导航bar的索引
   List<Widget> _bodyPages = []; // 导航bar对应的页面
+  PageController _pageController; // 页面控制器
 
   @override
   void initState() {
     super.initState();
+
+    // 初始化页面使用widget传递的currentIndex
+    _pageController = PageController(initialPage: widget.currentIndex);
 
     // app的初始化页面
     _bodyPages = [
@@ -35,11 +39,13 @@ class _AppHomeTabsState extends State<AppHomeTabs> {
       PageDemoThirdIndexPage(),
       UserIndexPage(),
     ];
-    print("init state");
+    // print("init state");
 
-    setState(() {
-      _currentBarIndex = widget.currentIndex;
-    });
+    if (_currentBarIndex != widget.currentIndex) {
+      setState(() {
+        _currentBarIndex = widget.currentIndex;
+      });
+    }
   }
 
   @override
@@ -71,6 +77,9 @@ class _AppHomeTabsState extends State<AppHomeTabs> {
         setState(() {
           // 设置新的选中导航bar
           _currentBarIndex = index;
+
+          // 页面控制器跳转页面
+          _pageController.jumpToPage(index);
         });
       },
       iconSize: 24.0, // 图标icon的大小
@@ -82,23 +91,13 @@ class _AppHomeTabsState extends State<AppHomeTabs> {
 
     // 首页的脚手架页面
     Scaffold appRouteTabsScaffold = Scaffold(
-//      appBar: AppBar(
-//        backgroundColor: AppPrimaryColor,
-//        title: Text("运维平台"),
-//        elevation: 0.0,                       // 阴影，默认是4.0
-//      ),
-      body: _bodyPages[_currentBarIndex], // 主体内容
+      // body: _bodyPages[_currentBarIndex], // 主体内容
+      body: PageView(
+        controller: _pageController,
+        children: _bodyPages,
+      ),
+
       bottomNavigationBar: appNavigationBar, // 底部导航
-//      floatingActionButton: FloatingActionButton(
-//        onPressed: (){
-//          print("add 点击了");
-//        },
-//        tooltip: "提示",
-//        child: Icon(
-//          Icons.add,
-//          color: Colors.white,
-//        ),
-//      ),
     );
 
     return appRouteTabsScaffold;

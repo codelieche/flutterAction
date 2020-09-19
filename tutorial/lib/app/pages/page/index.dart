@@ -29,6 +29,13 @@ class _PageIndexPageState extends State<PageIndexPage> {
         ListTile(
           leading: Icon(Icons.arrow_right),
           onTap: () {
+            Navigator.pushNamed(context, "/page/refreshreload/index");
+          },
+          title: Text("下拉刷新、上拉加载"),
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          onTap: () {
             Navigator.pushNamed(context, "/page/screenadapter/index");
           },
           title: Text("屏幕适配"),
