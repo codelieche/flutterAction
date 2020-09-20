@@ -33,6 +33,17 @@ class _ComplexWidgetIndexPageState extends State<ComplexWidgetIndexPage> {
         },
       ),
       Divider(),
+
+      // Draggable
+      ListTile(
+        leading: Icon(Icons.arrow_right),
+        title: Text("Draggable: 拖拽"),
+        onTap: () {
+          // 跳转去Draggable首页
+          Navigator.pushNamed(context, "/widget/draggable/index");
+        },
+      ),
+      Divider(),
     ];
 
     // 返回个列表容器

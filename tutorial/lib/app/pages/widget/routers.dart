@@ -29,6 +29,7 @@ import 'other/index.dart';
 // complex: 复杂组件
 import 'scaffold/index.dart';
 import 'dialog/index.dart';
+import 'draggable/index.dart';
 
 Map<String, Function> widgetRoutes = {
   // 基础组件：simple
@@ -56,4 +57,5 @@ Map<String, Function> widgetRoutes = {
   // 复杂组件
   "/widget/scaffold/index": (context) => ScaffoldWidgetIndexPage(),
   "/widget/dialog/index": (context) => DialogIndexPage(),
+  "/widget/draggable/index": (context) => DraggableIndexPage(),
 };
