@@ -169,7 +169,10 @@ class _ReFreshReloadBaseDemoPageState extends State<ReFreshReloadBaseDemoPage>
                               child: Text("已经全部加载完毕, 点击回到顶部！"),
                               onTap: () {
                                 // 如果是jumpTo(0.0); 会触发下拉刷新
-                                _scrollController.jumpTo(1.0);
+                                // _scrollController.jumpTo(1.0);
+                                _scrollController.animateTo(1.0,
+                                    duration: Duration(seconds: 1),
+                                    curve: Curves.easeInOut);
                               },
                             ),
                     ))

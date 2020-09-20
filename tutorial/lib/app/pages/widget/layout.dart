@@ -18,7 +18,7 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
           Navigator.pushNamed(context, "/widget/container/index");
         },
       ),
-      Divider(),
+      Divider(height: 1),
       ListTile(
         leading: Icon(Icons.arrow_right),
         title: Text("Row: 行"),
@@ -27,7 +27,7 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
           Navigator.pushNamed(context, "/widget/row/index");
         },
       ),
-      Divider(),
+      Divider(height: 1),
       ListTile(
         leading: Icon(Icons.arrow_right),
         title: Text("Column: 列"),
@@ -36,7 +36,7 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
           Navigator.pushNamed(context, "/widget/column/index");
         },
       ),
-      Divider(),
+      Divider(height: 1),
       ListTile(
         leading: Icon(Icons.arrow_right),
         title: Text("Wrap: 包裹"),
@@ -45,7 +45,7 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
           Navigator.pushNamed(context, "/widget/wrap/index");
         },
       ),
-      Divider(),
+      Divider(height: 1),
       ListTile(
         leading: Icon(Icons.arrow_right),
         title: Text("Expanded: 扩展"),
@@ -54,7 +54,7 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
           Navigator.pushNamed(context, "/widget/expanded/index");
         },
       ),
-      Divider(),
+      Divider(height: 1),
       ListTile(
         leading: Icon(Icons.arrow_right),
         title: Text("Stack: 层叠"),
@@ -63,7 +63,7 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
           Navigator.pushNamed(context, "/widget/stack/index");
         },
       ),
-      Divider(),
+      Divider(height: 1),
       ListTile(
         leading: Icon(Icons.arrow_right),
         title: Text("Positioned: 绝对位置"),
@@ -72,7 +72,7 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
           Navigator.pushNamed(context, "/widget/positioned/index");
         },
       ),
-      Divider(),
+      Divider(height: 1),
       ListTile(
         leading: Icon(Icons.arrow_right),
         title: Text("Card: 卡片"),
@@ -81,7 +81,16 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
           Navigator.pushNamed(context, "/widget/card/index");
         },
       ),
-      Divider(),
+      Divider(height: 1),
+      ListTile(
+        leading: Icon(Icons.arrow_right),
+        title: Text("ExpansionTile: 展开、闭合"),
+        onTap: () {
+          // 跳转去展开、闭合首页
+          Navigator.of(context).pushNamed("/widget/expansiontile/index");
+        },
+      ),
+      Divider(height: 1),
       ListTile(
         leading: Icon(Icons.arrow_right),
         title: Text("other: 其它"),
