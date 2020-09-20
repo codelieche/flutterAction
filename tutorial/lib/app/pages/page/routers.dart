@@ -9,6 +9,10 @@ import 'user/index.dart';
 // 屏幕适配
 import 'screenadapter/index.dart';
 
+// 菜单导航页
+import 'menus/index.dart';
+import 'menus/category/index.dart';
+
 // 下拉刷新、上拉加载
 import 'reFreshReload/index.dart';
 
@@ -27,6 +31,10 @@ Map<String, Function> pageRoutes = {
 
   // 用户页
   "/page/user/index": (context) => UserIndexPage(),
+
+  // 菜单导航页
+  "/page/menus/index": (context) => MenusIndexPage(),
+  "/page/menus/category/index": (context) => CategoryDemoIndexPage(),
 
   // 屏幕适配
   "/page/screenadapter/index": (context) => ScreenAdapterIndexPage(),

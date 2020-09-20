@@ -29,6 +29,13 @@ class _PageIndexPageState extends State<PageIndexPage> {
         ListTile(
           leading: Icon(Icons.arrow_right),
           onTap: () {
+            Navigator.pushNamed(context, "/page/menus/index");
+          },
+          title: Text("菜单、分类页"),
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          onTap: () {
             Navigator.pushNamed(context, "/page/refreshreload/index");
           },
           title: Text("下拉刷新、上拉加载"),
