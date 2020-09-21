@@ -1,17 +1,18 @@
-// 左右布局的分类
+// 左右布局的分类:Demo02
 import 'package:flutter/material.dart';
 import 'package:tutorial/app/utils/screen/adapter.dart';
 import 'package:tutorial/app/variables.dart';
 
-class CategoryLeftRightDemoPage extends StatefulWidget {
-  CategoryLeftRightDemoPage({Key key}) : super(key: key);
+class CategoryLeftRightDemo02Page extends StatefulWidget {
+  CategoryLeftRightDemo02Page({Key key}) : super(key: key);
 
   @override
-  _CategoryLeftRightDemoPageState createState() =>
-      _CategoryLeftRightDemoPageState();
+  _CategoryLeftRightDemo02PageState createState() =>
+      _CategoryLeftRightDemo02PageState();
 }
 
-class _CategoryLeftRightDemoPageState extends State<CategoryLeftRightDemoPage> {
+class _CategoryLeftRightDemo02PageState
+    extends State<CategoryLeftRightDemo02Page> {
   // 定义左侧分类数据
   List<Map<String, dynamic>> categories = [];
   // 右侧的分类数据
@@ -71,7 +72,6 @@ class _CategoryLeftRightDemoPageState extends State<CategoryLeftRightDemoPage> {
 
   getLeftWidget() {
     Widget leftWidget;
-    // 判断是否有数组
     if (categories.length <= 0) {
       leftWidget = Center(
         child: Text("加载分类中..."),
@@ -90,7 +90,7 @@ class _CategoryLeftRightDemoPageState extends State<CategoryLeftRightDemoPage> {
             categoryWidget = Container(
               width: ScreenAdapter.setWidth(100),
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: Colors.white,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -173,7 +173,6 @@ class _CategoryLeftRightDemoPageState extends State<CategoryLeftRightDemoPage> {
         itemCount: categories.length,
       );
     }
-
     // 返回
     return leftWidget;
   }
@@ -226,6 +225,7 @@ class _CategoryLeftRightDemoPageState extends State<CategoryLeftRightDemoPage> {
 
     // 页面主体内容
     Widget body = Container(
+      color: Colors.white,
       child: Row(
         // 左侧
         children: [
@@ -233,16 +233,17 @@ class _CategoryLeftRightDemoPageState extends State<CategoryLeftRightDemoPage> {
             width: ScreenAdapter.setWidth(100),
             height: double.infinity,
             child: leftWidget,
+            color: Colors.grey[200],
           ),
 
           // 右边
           Expanded(
             child: Container(
               height: double.infinity,
-              color: Colors.grey[200],
+              // color: Colors.grey[200],
               child: rightWidget,
             ),
-          )
+          ),
         ],
       ),
     );
@@ -250,7 +251,7 @@ class _CategoryLeftRightDemoPageState extends State<CategoryLeftRightDemoPage> {
     // 脚手架
     Scaffold scaffold = Scaffold(
       appBar: AppBar(
-        title: Text("左右布局分类"),
+        title: Text("左右布局02"),
       ),
       body: body,
     );

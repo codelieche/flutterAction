@@ -17,9 +17,13 @@ import 'menus/category/index.dart';
 import 'reFreshReload/index.dart';
 
 // 错误页面
+import 'errors/index.dart';
 import 'errors/403.dart';
 import 'errors/404.dart';
 import 'errors/50x.dart';
+
+// 其它
+import 'other/index.dart';
 
 // 配置的路由
 Map<String, Function> pageRoutes = {
@@ -40,7 +44,11 @@ Map<String, Function> pageRoutes = {
   "/page/screenadapter/index": (context) => ScreenAdapterIndexPage(),
 
   // 错误页
+  "/page/error/index": (context) => ErrorsIndexPage(),
   "/page/error/403": (context) => ErrorPage403(),
   "/page/error/404": (context) => ErrorPage404(),
   "/page/error/50x": (context) => ErrorPage50x(),
+
+  // 其它页面
+  "/page/other/index": (context) => PageOtherDemoIndexPage(),
 };

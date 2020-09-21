@@ -15,9 +15,9 @@ class _PageIndexPageState extends State<PageIndexPage> {
         ListTile(
           leading: Icon(Icons.arrow_right),
           onTap: () {
-            Navigator.pushNamed(context, "/page/error/404");
+            Navigator.pushNamed(context, "/page/error/index");
           },
-          title: Text("演示404"),
+          title: Text("401/403/404/50x错误页"),
         ),
         ListTile(
           leading: Icon(Icons.arrow_right),
@@ -46,6 +46,13 @@ class _PageIndexPageState extends State<PageIndexPage> {
             Navigator.pushNamed(context, "/page/screenadapter/index");
           },
           title: Text("屏幕适配"),
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          onTap: () {
+            Navigator.pushNamed(context, "/page/other/index");
+          },
+          title: Text("其它"),
         )
       ],
     );

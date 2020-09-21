@@ -4,6 +4,7 @@ import 'package:tutorial/app/components/items/title.dart';
 
 // 分类的示例页面
 import 'leftRight.dart';
+import 'leftRight02.dart';
 
 class CategoryDemoIndexPage extends StatefulWidget {
   CategoryDemoIndexPage({Key key}) : super(key: key);
@@ -34,7 +35,22 @@ class _CategoryDemoIndexPageState extends State<CategoryDemoIndexPage> {
                 );
               },
               child: Text("左右布局"),
-            )
+            ),
+            SizedBox(width: 10),
+            RaisedButton(
+              color: Colors.lightBlue,
+              textColor: Colors.white,
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return CategoryLeftRightDemo02Page();
+                    },
+                  ),
+                );
+              },
+              child: Text("左右布局02"),
+            ),
           ],
         )
       ],
