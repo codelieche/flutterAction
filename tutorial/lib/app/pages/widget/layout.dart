@@ -96,7 +96,7 @@ class _LayoutWidgetIndexPageState extends State<LayoutWidgetIndexPage> {
         title: Text("other: 其它"),
         onTap: () {
           // 跳转去Wrap首页
-          Navigator.pushNamed(context, "/widget/other/index");
+          Navigator.pushNamed(context, "/widget/other/layout/index");
         },
       ),
     ];

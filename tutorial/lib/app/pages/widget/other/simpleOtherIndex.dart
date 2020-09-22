@@ -1,28 +1,30 @@
 // 其它组件
 import 'package:flutter/material.dart';
 
-import 'aspectRatio.dart';
+import 'progressIndicator.dart';
 
-class OtherWidgetIndexPage extends StatefulWidget {
-  OtherWidgetIndexPage({Key key}) : super(key: key);
+class SimpleOtherWidgetIndexPage extends StatefulWidget {
+  SimpleOtherWidgetIndexPage({Key key}) : super(key: key);
 
   @override
-  _OtherWidgetIndexPageState createState() => _OtherWidgetIndexPageState();
+  _SimpleOtherWidgetIndexPageState createState() =>
+      _SimpleOtherWidgetIndexPageState();
 }
 
-class _OtherWidgetIndexPageState extends State<OtherWidgetIndexPage> {
+class _SimpleOtherWidgetIndexPageState
+    extends State<SimpleOtherWidgetIndexPage> {
   @override
   Widget build(BuildContext context) {
     ListView body = ListView(
       children: [
-        // 屏幕宽高比
+        // 进度条
         ListTile(
           leading: Icon(Icons.arrow_right),
-          title: Text("AspectRatio: 屏幕宽高比"),
+          title: Text("ProgressIndication: 进度条"),
           onTap: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (BuildContext context) {
-              return AspectRatioDemoPage();
+              return ProgressIndicatorDemoPage();
             }));
           },
         ),

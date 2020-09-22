@@ -81,9 +81,17 @@ class _ProgressIndicatorDemoPageState extends State<ProgressIndicatorDemoPage> {
       ],
     );
 
-    // 返回
-    return SingleChildScrollView(
-      child: body,
+    // 脚手架
+    Scaffold scaffold = Scaffold(
+      appBar: AppBar(
+        title: Text("进度条"),
+      ),
+      body: SingleChildScrollView(
+        child: body,
+      ),
     );
+
+    // 返回
+    return scaffold;
   }
 }

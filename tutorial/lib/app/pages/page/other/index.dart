@@ -6,7 +6,7 @@ import 'package:tutorial/app/variables.dart';
 
 // 引入示例
 import 'loading/index.dart';
-import 'loading/progressIndicator.dart';
+// import '../../widget/other/progressIndicator.dart';
 
 class PageOtherDemoIndexPage extends StatefulWidget {
   PageOtherDemoIndexPage({Key key}) : super(key: key);
@@ -28,8 +28,8 @@ class _PageOtherDemoIndexPageState extends State<PageOtherDemoIndexPage>
     super.initState();
     // tabs
     _tabs = [
-      Tab(text: "进度条"),
       Tab(text: "Loading"),
+      Tab(text: "测试"),
     ];
 
     // 实例化Tab控制器
@@ -87,8 +87,9 @@ class _PageOtherDemoIndexPageState extends State<PageOtherDemoIndexPage>
       ),
       body: TabBarView(
         children: [
-          ProgressIndicatorDemoPage(),
+          // ProgressIndicatorDemoPage(),
           LoadingDemoIndexPage(),
+          Text("测试"),
         ],
         controller: _tabController,
       ),

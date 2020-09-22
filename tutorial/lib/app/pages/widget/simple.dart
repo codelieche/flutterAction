@@ -53,6 +53,14 @@ class _SimpleWidgetPageState extends State<SimpleWidgetPage> {
             // 跳转去网格组件首页
             Navigator.pushNamed(context, "/widget/gridview/index");
           },
+        ),
+        ListTile(
+          leading: Icon(Icons.grid_on),
+          title: Text("Other: 其它"),
+          onTap: () {
+            // 跳转去网格组件首页
+            Navigator.pushNamed(context, "/widget/other/simple/index");
+          },
         )
       ],
     );
