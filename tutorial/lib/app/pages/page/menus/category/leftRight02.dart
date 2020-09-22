@@ -1,5 +1,6 @@
 // 左右布局的分类:Demo02
 import 'package:flutter/material.dart';
+import 'package:tutorial/app/components/items/loading.dart';
 import 'package:tutorial/app/utils/screen/adapter.dart';
 import 'package:tutorial/app/variables.dart';
 
@@ -73,8 +74,8 @@ class _CategoryLeftRightDemo02PageState
   getLeftWidget() {
     Widget leftWidget;
     if (categories.length <= 0) {
-      leftWidget = Center(
-        child: Text("加载分类中..."),
+      leftWidget = LoadingWidget(
+        imageWidth: 20,
       );
       return leftWidget;
     } else {

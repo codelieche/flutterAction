@@ -1,5 +1,6 @@
 // 左右布局的分类
 import 'package:flutter/material.dart';
+import 'package:tutorial/app/components/items/loading.dart';
 import 'package:tutorial/app/utils/screen/adapter.dart';
 import 'package:tutorial/app/variables.dart';
 
@@ -73,9 +74,7 @@ class _CategoryLeftRightDemoPageState extends State<CategoryLeftRightDemoPage> {
     Widget leftWidget;
     // 判断是否有数组
     if (categories.length <= 0) {
-      leftWidget = Center(
-        child: Text("加载分类中..."),
-      );
+      leftWidget = LoadingWidget();
       return leftWidget;
     } else {
       // 左侧内容

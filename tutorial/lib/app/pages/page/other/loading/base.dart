@@ -1,5 +1,7 @@
 // Loading
 import 'package:flutter/material.dart';
+import 'package:tutorial/app/components/items/loading.dart';
+import 'package:tutorial/app/components/items/title.dart';
 
 class LoadingBaseDemo extends StatefulWidget {
   LoadingBaseDemo({Key key}) : super(key: key);
@@ -62,6 +64,9 @@ class _LoadingBaseDemoState extends State<LoadingBaseDemo> {
         ),
 
         // 图片
+        SimpleTitleWidget(
+          title: "使用图片",
+        ),
         Row(
           children: [
             Expanded(
@@ -103,6 +108,83 @@ class _LoadingBaseDemoState extends State<LoadingBaseDemo> {
             ),
           ],
         ),
+
+        // 使用LoadingWidget
+        SimpleTitleWidget(
+          title: "自定义LoadingWidget",
+          description: "LoadingWidget",
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.white,
+                child: LoadingWidget(),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.lightBlue,
+                child: LoadingWidget(),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.pinkAccent,
+                child: LoadingWidget(),
+              ),
+            )
+          ],
+        ),
+
+        // 使用LoadingWidget
+        SimpleTitleWidget(
+          title: "水平LoadingWidget",
+          description: "LoadingWidget(direction: Axis.horizontal)",
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.white,
+                child: LoadingWidget(
+                  // imageWidth: 20,
+                  direction: Axis.horizontal,
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.blue[50],
+                child: LoadingWidget(
+                  // imageWidth: 20,
+                  direction: Axis.horizontal,
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                color: Colors.grey[200],
+                child: LoadingWidget(
+                  imageWidth: 20,
+                  direction: Axis.horizontal,
+                ),
+              ),
+            )
+          ],
+        )
       ],
     );
     return body;
