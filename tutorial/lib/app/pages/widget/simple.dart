@@ -56,6 +56,14 @@ class _SimpleWidgetPageState extends State<SimpleWidgetPage> {
         ),
         ListTile(
           leading: Icon(Icons.grid_on),
+          title: Text("Datetime: 时间组件"),
+          onTap: () {
+            // 跳转去网格组件首页
+            Navigator.pushNamed(context, "/widget/datetime/index");
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.grid_on),
           title: Text("Other: 其它"),
           onTap: () {
             // 跳转去网格组件首页

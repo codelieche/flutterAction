@@ -13,6 +13,7 @@ import 'image/index.dart';
 import 'button/index.dart';
 import 'listview/index.dart';
 import 'gridview/index.dart';
+import 'datetime/index.dart';
 import 'other/simpleOtherIndex.dart';
 
 // layout：布局组件
@@ -39,6 +40,7 @@ Map<String, Function> widgetRoutes = {
   "/widget/button/index": (context) => ButtonWidgetIndexPage(),
   "/widget/listview/index": (context) => ListViewWidgetIndexPage(),
   "/widget/gridview/index": (context) => GridViewWidgetIndexPage(),
+  "/widget/datetime/index": (context) => DateTimeIndexPage(),
   "/widget/other/simple/index": (context) => SimpleOtherWidgetIndexPage(),
 
   // 布局相关组件：layout
