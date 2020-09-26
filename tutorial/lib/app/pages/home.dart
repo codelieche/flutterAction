@@ -3,6 +3,7 @@
  * 主要是包含了底部的导航，以及各导航指向啥页面
  */
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tutorial/app/variables.dart';
 
 // 路由
@@ -93,6 +94,16 @@ class _AppHomePageState extends State<AppHomePage> {
       // home: homeScaffold,
       initialRoute: "/", // 初始化的时候加载的路由
       onGenerateRoute: onGenerateRoute,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale("zh", "CH"),
+        const Locale("en", "US"),
+      ],
+      locale: Locale("zh"),
     );
   }
 }
