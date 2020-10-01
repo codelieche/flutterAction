@@ -18,7 +18,7 @@ class _DateTimeIndexPageState extends State<DateTimeIndexPage>
   int _currentIndex = 0; // 当前选中的tab的index
   List<Widget> _tabs = []; // tab列表
   TabBar _tabBar; // TabBar
-  TabController _tabController; // Tab哦控制器
+  TabController _tabController; // Tab控制器
   VoidCallback _onChange; // TabController监听的事件
 
   @override

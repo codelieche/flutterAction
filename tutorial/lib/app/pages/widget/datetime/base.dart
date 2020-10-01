@@ -2,7 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:tutorial/app/components/items/title.dart';
+import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 
 class DateTimeBaseDemoPage extends StatefulWidget {
   DateTimeBaseDemoPage({Key key}) : super(key: key);
@@ -12,6 +14,9 @@ class DateTimeBaseDemoPage extends StatefulWidget {
 }
 
 class _DateTimeBaseDemoPageState extends State<DateTimeBaseDemoPage> {
+  DateTime startDateTime; // 开始的日期
+  DateTime endDateTime; // 结束的时间日期
+
   @override
   Widget build(BuildContext context) {
     // 页面主体内容
@@ -135,6 +140,87 @@ class _DateTimeBaseDemoPageState extends State<DateTimeBaseDemoPage> {
                 ),
               ),
             ),
+          ],
+        ),
+
+        // 显示时间
+        SimpleTitleWidget(
+          title: "日期区间",
+          description: "date_range_picker(第三方库)",
+        ),
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+          color: Colors.grey[200],
+          child: Text(
+            "选择的区间：\n${startDateTime != null ? DateFormat("yyyy-MM-dd").format(startDateTime) : ""} -- ${endDateTime != null ? DateFormat("yyyy-MM-dd").format(endDateTime) : ""}",
+            style: TextStyle(
+              fontSize: 12,
+            ),
+          ),
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: RaisedButton(
+                  onPressed: () async {
+                    final List<DateTime> picked =
+                        await DateRagePicker.showDatePicker(
+                            context: context,
+                            initialFirstDate: startDateTime != null
+                                ? startDateTime
+                                : new DateTime.now(),
+                            initialLastDate: endDateTime != null
+                                ? endDateTime
+                                : (new DateTime.now())
+                                    .add(new Duration(days: 7)),
+                            firstDate: new DateTime(2013),
+                            lastDate: new DateTime(2100));
+                    if (picked != null && picked.length == 2) {
+                      print(picked);
+                      setState(() {
+                        startDateTime = picked[0];
+                        endDateTime = picked[1];
+                      });
+                    }
+                  },
+                  child: Text("选择区间(en)"),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: RaisedButton(
+                  color: Colors.lightBlue,
+                  textColor: Colors.white,
+                  onPressed: () async {
+                    final List<DateTime> picked =
+                        await DateRagePicker.showDatePicker(
+                            locale: Locale("zh"),
+                            context: context,
+                            initialFirstDate: startDateTime != null
+                                ? startDateTime
+                                : new DateTime.now(),
+                            initialLastDate: endDateTime != null
+                                ? endDateTime
+                                : (new DateTime.now())
+                                    .add(new Duration(days: 7)),
+                            firstDate: new DateTime(2013),
+                            lastDate: new DateTime(2100));
+                    if (picked != null && picked.length == 2) {
+                      print(picked);
+                      setState(() {
+                        startDateTime = picked[0];
+                        endDateTime = picked[1];
+                      });
+                    }
+                  },
+                  child: Text("选择区间(中文)"),
+                ),
+              ),
+            )
           ],
         ),
       ],
