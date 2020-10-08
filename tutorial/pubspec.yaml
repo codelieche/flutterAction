@@ -46,6 +46,7 @@ dependencies:
   # 第三方库
   flutter_swiper: ^1.1.6
   date_range_picker: ^1.0.5
+  flutter_slidable: ^0.5.7
 
 dev_dependencies:
   flutter_test:

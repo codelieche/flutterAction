@@ -20,6 +20,13 @@ class _ThirdIndexPageState extends State<ThirdIndexPage> {
           },
           leading: Icon(Icons.arrow_right),
           title: Text("网络请求: dio"),
+        ),
+        ListTile(
+          onTap: () {
+            Navigator.of(context).pushNamed("/third/flutter_slidable/index");
+          },
+          leading: Icon(Icons.arrow_right),
+          title: Text("滑动功能: flutter_slidable"),
         )
       ],
     );
