@@ -26,7 +26,7 @@ class _ProviderTestDemoPageState extends State<ProviderTestDemoPage> {
           children: [
             Expanded(
               child: RaisedButton(
-                color: Colors.pinkAccent,
+                color: Colors.lightBlue,
                 textColor: Colors.white,
                 child: Text("add"),
                 onPressed: () {
@@ -35,7 +35,21 @@ class _ProviderTestDemoPageState extends State<ProviderTestDemoPage> {
               ),
             )
           ],
-        )
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: RaisedButton(
+                color: Colors.pinkAccent,
+                textColor: Colors.white,
+                child: Text("sub"),
+                onPressed: () {
+                  _conterProvider.sub();
+                },
+              ),
+            )
+          ],
+        ),
       ],
     );
   }

@@ -7,6 +7,9 @@ import 'package:tutorial/app/variables.dart';
 // 菜单示例
 import 'category/index.dart';
 
+// showMenu
+import 'showMenu/index.dart';
+
 class MenusIndexPage extends StatefulWidget {
   MenusIndexPage({Key key}) : super(key: key);
 
@@ -29,6 +32,7 @@ class _MenusIndexPageState extends State<MenusIndexPage>
     _tabs = [
       Tab(text: "分类页"),
       Tab(text: "菜单页"),
+      Tab(text: "showMenu"),
     ];
 
     // 实例化Tab控制器
@@ -88,6 +92,7 @@ class _MenusIndexPageState extends State<MenusIndexPage>
         children: [
           CategoryDemoIndexPage(),
           Text("菜单页"),
+          ShowMenuDemoPage(),
         ],
         controller: _tabController,
       ),

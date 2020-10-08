@@ -11,6 +11,11 @@ class ExampleProviderCounter with ChangeNotifier, DiagnosticableTreeMixin {
     notifyListeners();
   }
 
+  void sub() {
+    _count--;
+    notifyListeners();
+  }
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
