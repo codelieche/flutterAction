@@ -45,6 +45,17 @@ class _ComplexWidgetIndexPageState extends State<ComplexWidgetIndexPage> {
       ),
       Divider(),
 
+      // Table
+      ListTile(
+        leading: Icon(Icons.arrow_right),
+        title: Text("Table: 表格"),
+        onTap: () {
+          // 跳转去Table首页
+          Navigator.pushNamed(context, "/widget/table/index");
+        },
+      ),
+      Divider(),
+
       // Provider
       ListTile(
         leading: Icon(Icons.arrow_right),

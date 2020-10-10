@@ -32,6 +32,7 @@ import 'other/layoutOtherIndex.dart';
 import 'scaffold/index.dart';
 import 'dialog/index.dart';
 import 'draggable/index.dart';
+import 'table/index.dart';
 import 'provider/index.dart';
 
 Map<String, Function> widgetRoutes = {
@@ -60,5 +61,6 @@ Map<String, Function> widgetRoutes = {
   "/widget/scaffold/index": (context) => ScaffoldWidgetIndexPage(),
   "/widget/dialog/index": (context) => DialogIndexPage(),
   "/widget/draggable/index": (context) => DraggableIndexPage(),
+  "/widget/table/index": (context) => TableDemoIndexPage(),
   "/widget/provider/index": (context) => ProviderIndexPage(),
 };
