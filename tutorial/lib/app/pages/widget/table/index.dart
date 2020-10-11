@@ -6,6 +6,7 @@ import 'package:tutorial/app/variables.dart';
 
 // 引入示例
 import 'base.dart';
+import 'tableview.dart';
 
 class TableDemoIndexPage extends StatefulWidget {
   TableDemoIndexPage({Key key}) : super(key: key);
@@ -28,7 +29,7 @@ class _TableDemoIndexPageState extends State<TableDemoIndexPage>
     // tabs
     _tabs = [
       Tab(text: "基本"),
-      Tab(text: "测试"),
+      Tab(text: "Tabview"),
     ];
 
     // 实例化Tab控制器
@@ -87,7 +88,7 @@ class _TableDemoIndexPageState extends State<TableDemoIndexPage>
       body: TabBarView(
         children: [
           TableBaseDemoPage(),
-          Text("Test"),
+          TableViewBuildTableDemo(),
         ],
         controller: _tabController,
       ),
