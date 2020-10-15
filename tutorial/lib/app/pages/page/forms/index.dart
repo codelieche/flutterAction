@@ -2,9 +2,11 @@
 // 1. 基本：Text("Base")
 // 2. 测试：Text("Test")
 import 'package:flutter/material.dart';
+import 'package:tutorial/app/pages/page/forms/selecteDemo.dart';
 import 'package:tutorial/app/variables.dart';
 
 import 'base.dart';
+import './selecteDemo.dart';
 
 class PageFormsDemoPage extends StatefulWidget {
   PageFormsDemoPage({Key key}) : super(key: key);
@@ -27,7 +29,7 @@ class _PageFormsDemoPageState extends State<PageFormsDemoPage>
     // tabs
     _tabs = [
       Tab(text: "基本"),
-      Tab(text: "测试"),
+      Tab(text: "弹出选择值"),
     ];
 
     // 实例化Tab控制器
@@ -86,7 +88,7 @@ class _PageFormsDemoPageState extends State<PageFormsDemoPage>
       body: TabBarView(
         children: [
           SelecteValuesBaseDemo(),
-          SelecteValuesBaseDemo(),
+          BaseSelectValuesWidgetDemoPage(),
         ],
         controller: _tabController,
       ),

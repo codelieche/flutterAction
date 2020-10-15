@@ -33,7 +33,7 @@ class BaseSelectValuesWidget extends StatefulWidget {
     @required this.values,
     @required this.items,
     this.searchText = "search",
-    this.maxHeight = 260.0,
+    this.maxHeight = 300.0,
     this.activeColor = AppPrimaryColor,
     this.callback, // 回调函数
   }) : super(key: key);
@@ -239,128 +239,135 @@ class _BaseSelectValuesWidgetState extends State<BaseSelectValuesWidget> {
       );
     }
 
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border(
-                top: BorderSide(width: 0.5, color: Colors.grey[400]),
-                bottom: BorderSide(width: 0.5, color: Colors.grey[400]),
-              )),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 3,
-                child: Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(left: 5, right: 5),
-                  padding: EdgeInsets.only(left: 5),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(4),
-                    // border: Border.all(width: 1, color: Colors.grey[200]),
-                  ),
-                  child: TextField(
-                    focusNode: _inputFocusNode,
-                    controller: _textEditingController,
-                    decoration: InputDecoration(
-                      hintText: "${widget.searchText}",
-                      hintStyle: TextStyle(fontSize: 13),
-                      contentPadding: EdgeInsets.only(
-                        top: 5,
-                        bottom: 5,
-                        left: 5,
-                      ),
-                      border: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-
-                      // border: OutlineInputBorder(
-                      //   borderSide: BorderSide(
-                      //     color: Colors.pinkAccent,
-                      //     width: 0.5,
-                      //   ),
-                      // ),
+    return Container(
+      constraints: BoxConstraints(
+        minHeight: 50,
+        maxHeight: widget.maxHeight,
+      ),
+      child: Column(
+        children: [
+          // 顶部：搜索 + 2个按钮
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border(
+                  top: BorderSide(width: 0.5, color: Colors.grey[400]),
+                  bottom: BorderSide(width: 0.5, color: Colors.grey[400]),
+                )),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(left: 5, right: 5),
+                    padding: EdgeInsets.only(left: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(4),
+                      // border: Border.all(width: 1, color: Colors.grey[200]),
                     ),
-                    style: TextStyle(fontSize: 14),
-                    onChanged: (value) {
-                      this.filterItems(value);
-                    },
-                    onSubmitted: (value) {
-                      if (_inputFocusNode.hasFocus) {
-                        _inputFocusNode.unfocus();
-                      }
-                      setState(() {
-                        searchValue = value;
-                      });
-                      // 过滤数据
-                      this.filterItems(value);
-                    },
+                    child: TextField(
+                      focusNode: _inputFocusNode,
+                      controller: _textEditingController,
+                      decoration: InputDecoration(
+                        hintText: "${widget.searchText}",
+                        hintStyle: TextStyle(fontSize: 13),
+                        contentPadding: EdgeInsets.only(
+                          top: 5,
+                          bottom: 5,
+                          left: 5,
+                        ),
+                        border: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+
+                        // border: OutlineInputBorder(
+                        //   borderSide: BorderSide(
+                        //     color: Colors.pinkAccent,
+                        //     width: 0.5,
+                        //   ),
+                        // ),
+                      ),
+                      style: TextStyle(fontSize: 14),
+                      onChanged: (value) {
+                        this.filterItems(value);
+                      },
+                      onSubmitted: (value) {
+                        if (_inputFocusNode.hasFocus) {
+                          _inputFocusNode.unfocus();
+                        }
+                        setState(() {
+                          searchValue = value;
+                        });
+                        // 过滤数据
+                        this.filterItems(value);
+                      },
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 5),
-                        child: OutlineButton(
-                          onPressed: () {
-                            // 取消搜索框的焦点
-                            if (_inputFocusNode.hasFocus) {
-                              _inputFocusNode.unfocus();
-                            }
-                          },
-                          child: Text(
-                            "取消",
-                            style: TextStyle(fontSize: 14),
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.symmetric(horizontal: 5),
+                          child: OutlineButton(
+                            onPressed: () {
+                              // 取消搜索框的焦点
+                              if (_inputFocusNode.hasFocus) {
+                                _inputFocusNode.unfocus();
+                              }
+                              // 记得返回
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(
+                              "取消",
+                              style: TextStyle(fontSize: 14),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 5),
-                        child: RaisedButton(
-                          color: widget.activeColor,
-                          textColor: Colors.white,
-                          onPressed: () {
-                            // 取消搜索框的焦点
-                            if (_inputFocusNode.hasFocus) {
-                              _inputFocusNode.unfocus();
-                            }
-                            this.handleSelectedCallBack();
-                          },
-                          child: Text(
-                            "确定",
-                            style: TextStyle(fontSize: 14),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.symmetric(horizontal: 5),
+                          child: RaisedButton(
+                            color: widget.activeColor,
+                            textColor: Colors.white,
+                            onPressed: () {
+                              // 取消搜索框的焦点
+                              if (_inputFocusNode.hasFocus) {
+                                _inputFocusNode.unfocus();
+                              }
+                              this.handleSelectedCallBack();
+                            },
+                            child: Text(
+                              "确定",
+                              style: TextStyle(fontSize: 14),
+                            ),
                           ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
 
-        // 列表选项
-        Container(
-          constraints: BoxConstraints(
-            minHeight: 50,
-            maxHeight: widget.maxHeight,
+          // 列表选项
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: listView,
+            ),
           ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-          ),
-          child: listView,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
