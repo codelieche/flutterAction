@@ -188,6 +188,7 @@ class _CheckBoxListTileBaseDemoPageState
         Wrap(
           children: [
             CheckboxListTile(
+                dense: true,
                 value: this.name == "codelieche",
                 activeColor: Colors.pinkAccent,
                 onChanged: (checked) {
@@ -206,6 +207,7 @@ class _CheckBoxListTileBaseDemoPageState
                   ),
                 )),
             CheckboxListTile(
+              dense: true,
               value: this.name == "编程列车",
               activeColor: Colors.pinkAccent,
               onChanged: (checked) {
@@ -230,6 +232,7 @@ class _CheckBoxListTileBaseDemoPageState
         Wrap(
           children: [
             CheckboxListTile(
+              dense: true,
               value: this.name == "codelieche",
               activeColor: Colors.pinkAccent,
               onChanged: (checked) {
@@ -250,6 +253,7 @@ class _CheckBoxListTileBaseDemoPageState
               selected: this.name == "codelieche",
             ),
             CheckboxListTile(
+              dense: true,
               value: this.name == "编程列车",
               activeColor: Colors.pinkAccent,
               onChanged: (checked) {

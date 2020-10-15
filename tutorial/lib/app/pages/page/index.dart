@@ -50,6 +50,13 @@ class _PageIndexPageState extends State<PageIndexPage> {
         ListTile(
           leading: Icon(Icons.arrow_right),
           onTap: () {
+            Navigator.pushNamed(context, "/page/forms/index");
+          },
+          title: Text("表单相关"),
+        ),
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          onTap: () {
             Navigator.pushNamed(context, "/page/other/index");
           },
           title: Text("其它"),

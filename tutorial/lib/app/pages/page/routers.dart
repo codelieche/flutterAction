@@ -22,6 +22,9 @@ import 'errors/403.dart';
 import 'errors/404.dart';
 import 'errors/50x.dart';
 
+// 表单
+import 'forms/index.dart';
+
 // 其它
 import 'other/index.dart';
 
@@ -42,6 +45,9 @@ Map<String, Function> pageRoutes = {
 
   // 屏幕适配
   "/page/screenadapter/index": (context) => ScreenAdapterIndexPage(),
+
+  // 表单
+  "/page/forms/index": (context) => PageFormsDemoPage(),
 
   // 错误页
   "/page/error/index": (context) => ErrorsIndexPage(),

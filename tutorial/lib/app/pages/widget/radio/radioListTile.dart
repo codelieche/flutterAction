@@ -23,6 +23,7 @@ class _RadioListTileBaseDemoPageState extends State<RadioListTileBaseDemoPage> {
         Wrap(
           children: [
             RadioListTile(
+              dense: true,
               value: "codelieche",
               groupValue: this.name,
               onChanged: (value) {
@@ -33,6 +34,7 @@ class _RadioListTileBaseDemoPageState extends State<RadioListTileBaseDemoPage> {
               title: Text("codelieche"),
             ),
             RadioListTile(
+              dense: true,
               value: "编程列车",
               groupValue: this.name,
               onChanged: (value) {
@@ -51,6 +53,7 @@ class _RadioListTileBaseDemoPageState extends State<RadioListTileBaseDemoPage> {
           children: [
             RadioListTile(
               activeColor: Colors.pinkAccent,
+              dense: true,
               value: "codelieche",
               groupValue: this.name,
               onChanged: (value) {
@@ -62,6 +65,7 @@ class _RadioListTileBaseDemoPageState extends State<RadioListTileBaseDemoPage> {
               subtitle: Text("codelieche.com"),
             ),
             RadioListTile(
+              dense: true,
               value: "编程列车",
               activeColor: Colors.pinkAccent,
               groupValue: this.name,
@@ -83,6 +87,7 @@ class _RadioListTileBaseDemoPageState extends State<RadioListTileBaseDemoPage> {
           children: [
             RadioListTile(
               activeColor: Colors.pinkAccent,
+              dense: true,
               value: "codelieche",
               groupValue: this.name,
               onChanged: (value) {
@@ -97,6 +102,7 @@ class _RadioListTileBaseDemoPageState extends State<RadioListTileBaseDemoPage> {
             ),
             RadioListTile(
               value: "编程列车",
+              dense: true,
               activeColor: Colors.pinkAccent,
               groupValue: this.name,
               onChanged: (value) {
