@@ -8,6 +8,7 @@ import 'package:tutorial/app/variables.dart';
 // 基本使用
 import 'base.dart';
 import 'demo01.dart';
+import 'scrollController.dart';
 
 class ListViewWidgetIndexPage extends StatefulWidget {
   @override
@@ -29,12 +30,9 @@ class _ListViewWidgetIndexPageState extends State<ListViewWidgetIndexPage>
 
     // tabs
     _tabs = [
-      Tab(
-        text: "基本使用",
-      ),
-      Tab(
-        text: "示例1",
-      ),
+      Tab(text: "基本使用"),
+      Tab(text: "示例1"),
+      Tab(text: "ScrollController"),
     ];
 
     // TabController
@@ -92,6 +90,7 @@ class _ListViewWidgetIndexPageState extends State<ListViewWidgetIndexPage>
         children: [
           ListViewBaseDemoPage(),
           ListViewDemo01Page(),
+          ScrollControllerDemoPage(),
         ],
         controller: _tabController,
       ),

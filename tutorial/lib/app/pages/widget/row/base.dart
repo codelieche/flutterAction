@@ -25,9 +25,10 @@ class _RowBaseDemoPageState extends State<RowBaseDemoPage> {
         // 填满一行
         SimpleTitleWidget(title: "填满整行:Expanded"),
         Row(
-            children: threeSquareContainer.map((e) {
-          return Expanded(child: e);
-        }).toList()),
+          children: threeSquareContainer.map((e) {
+            return Expanded(child: e);
+          }).toList(),
+        ),
 
         // 主轴横向对齐方式: center
         SimpleTitleWidget(title: "MainAxisAlignment.center"),

@@ -12,6 +12,8 @@ import 'alignment.dart';
 import 'paddingMargin.dart';
 // decoration
 import 'decoration.dart';
+// constraints
+import 'constraints.dart';
 
 class ContainerWidgetIndexPage extends StatefulWidget {
   @override
@@ -63,6 +65,16 @@ class _ContainerWidgetIndexPageState extends State<ContainerWidgetIndexPage> {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (BuildContext context) {
                 return ContainerDecorationDemo();
+              }));
+            }),
+        Divider(),
+        ListTile(
+            leading: Icon(Icons.arrow_right),
+            title: Text("constraints: 限制"),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return ContainerConstraintsDemoPage();
               }));
             }),
         Divider(),
