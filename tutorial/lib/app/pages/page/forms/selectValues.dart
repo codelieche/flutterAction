@@ -2,6 +2,7 @@
 // 需要配置的参数：items: List<Map<String, dynamic>>
 
 import 'package:flutter/material.dart';
+import 'package:tutorial/app/components/base/toast.dart';
 import 'package:tutorial/app/variables.dart';
 
 class SelectedValueItem {
@@ -25,7 +26,7 @@ class BaseSelectValuesWidget extends StatefulWidget {
   final String searchText; // 搜索提示字符
   final double maxHeight; // 弹出的选项的最大高度
   final Color activeColor; // 选择的颜色
-  final Function(dynamic values) callBack; // 回调函数
+  final Function(dynamic values) callback; // 回调函数
   BaseSelectValuesWidget({
     Key key,
     this.isMultiple = false,
@@ -34,7 +35,7 @@ class BaseSelectValuesWidget extends StatefulWidget {
     this.searchText = "search",
     this.maxHeight = 260.0,
     this.activeColor = AppPrimaryColor,
-    this.callBack, // 回调函数
+    this.callback, // 回调函数
   }) : super(key: key);
 
   @override
@@ -113,15 +114,22 @@ class _BaseSelectValuesWidgetState extends State<BaseSelectValuesWidget> {
   // 确认函数
   handleSelectedCallBack() {
     // 当点击了确定之后，执行回调函数
-    if (widget.callBack != null) {
-      widget.callBack(values);
+    if (widget.callback != null) {
+      widget.callback(values);
     } else {
-      Scaffold.of(context).showSnackBar(
-        SnackBar(
-          content: Text("选择的值为：$values"),
-          duration: Duration(seconds: 2),
-        ),
+      // 弹出消息
+      showToastMessage(
+        "选择的值为：$values",
+        type: ToastMessageType.message,
+        gravity: ToastGravity.BOTTOM,
       );
+
+      // Scaffold.of(context).showSnackBar(
+      //   SnackBar(
+      //     content: Text("选择的值为：$values"),
+      //     duration: Duration(seconds: 2),
+      //   ),
+      // );
     }
     // 返回
     Navigator.of(context).pop(values);
