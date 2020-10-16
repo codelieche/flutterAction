@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // 引入demo
 import './base.dart';
+import './textField.dart';
 
 class ShowModalBottomSheetIndexPage extends StatefulWidget {
   ShowModalBottomSheetIndexPage({Key key}) : super(key: key);
@@ -21,6 +22,8 @@ class _ShowModalBottomSheetIndexPageState
       children: [
         // 基本使用
         ShowModalBottomSheetBaseDemo(),
+        // 弹出文本输入框
+        ShowModalBottomSheetTextFieldDemo(),
       ],
     );
 

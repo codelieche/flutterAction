@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tutorial/app/components/items/title.dart';
 
 // 导入BaseSelectValuesWidget
-import './selectValues.dart';
 import 'bottomSheet.dart';
+import 'modalBottomSheet.dart';
 
 class BaseSelectValuesWidgetDemoPage extends StatefulWidget {
   BaseSelectValuesWidgetDemoPage({Key key}) : super(key: key);
@@ -24,8 +24,14 @@ class _BaseSelectValuesWidgetDemoPageState
         children: [
           SimpleTitleWidget(
             title: "底部弹出选择框",
+            description: "showBottomSheet",
           ),
           SelectedBottomSheetDemo(),
+          SimpleTitleWidget(
+            title: "底部弹出选择框",
+            description: "showModalBottomSheet",
+          ),
+          SelectedModalBottomSheetDemo(),
         ],
       ),
     );
@@ -33,6 +39,7 @@ class _BaseSelectValuesWidgetDemoPageState
     // 包裹滑动
     body = SingleChildScrollView(
       child: body,
+      physics: AlwaysScrollableScrollPhysics(),
     );
 
     // 返回
