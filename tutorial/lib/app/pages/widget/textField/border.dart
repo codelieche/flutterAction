@@ -26,6 +26,7 @@ class _TextFieldBorderDemoPageState extends State<TextFieldBorderDemoPage> {
           padding: EdgeInsets.all(5),
           child: TextField(
             decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 8),
               border: OutlineInputBorder(),
             ),
           ),
@@ -41,7 +42,7 @@ class _TextFieldBorderDemoPageState extends State<TextFieldBorderDemoPage> {
           padding: EdgeInsets.all(5),
           child: TextField(
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.all(5),
+              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 8),
               prefixIcon: Icon(Icons.account_box),
               labelText: "用户名",
               hintText: "username",
@@ -53,13 +54,43 @@ class _TextFieldBorderDemoPageState extends State<TextFieldBorderDemoPage> {
           padding: EdgeInsets.all(5),
           child: TextField(
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.all(5),
+              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 8),
               prefixIcon: Icon(Icons.lock_outline),
               labelText: "密码",
               hintText: "password",
               border: OutlineInputBorder(),
             ),
             obscureText: true, // 隐藏输入内容
+          ),
+        ),
+
+        // 设置不要边框
+        SimpleTitleWidget(
+          title: "设置不要边框",
+          description:
+              'InputDecoration(contentPadding: EdgeInsets.all(5), border: OutlineInputBorder())',
+        ),
+        Container(
+          margin: EdgeInsets.all(5),
+          height: 40,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(
+              width: 0.5,
+              color: Colors.grey[400],
+            ),
+            borderRadius: BorderRadius.circular(3),
+          ),
+          child: TextField(
+            // enabled: false,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 8),
+              hintText: "用户名",
+              hintStyle: TextStyle(fontSize: 13),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+              ),
+            ),
           ),
         ),
 

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tutorial/app/components/items/title.dart';
 
 // 导入BaseSelectValuesWidget
-import 'bottomSheet.dart';
-import 'modalBottomSheet.dart';
+import 'selectValues/bottomSheet.dart';
+import 'selectValues/modalBottomSheet.dart';
 
 class BaseSelectValuesWidgetDemoPage extends StatefulWidget {
   BaseSelectValuesWidgetDemoPage({Key key}) : super(key: key);

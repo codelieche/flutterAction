@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial/app/components/items/title.dart';
-import 'selectValues.dart';
+import 'selectValues/selectValues.dart';
+
+import './selectValues/models.dart';
 
 class SelecteValuesBaseDemo extends StatefulWidget {
   SelecteValuesBaseDemo({Key key}) : super(key: key);
@@ -31,7 +33,7 @@ class _SelecteValuesBaseDemoState extends State<SelecteValuesBaseDemo> {
             items: items,
           ),
           SizedBox(
-            height: 100,
+            height: 20,
           ),
           SimpleTitleWidget(
             title: "SelectValues基本示例2",

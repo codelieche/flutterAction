@@ -7,6 +7,7 @@ import 'package:tutorial/app/variables.dart';
 
 import 'base.dart';
 import './selecteDemo.dart';
+import 'selectedDisplay.dart';
 
 class PageFormsDemoPage extends StatefulWidget {
   PageFormsDemoPage({Key key}) : super(key: key);
@@ -30,6 +31,7 @@ class _PageFormsDemoPageState extends State<PageFormsDemoPage>
     _tabs = [
       Tab(text: "基本"),
       Tab(text: "弹出选择值"),
+      Tab(text: "选中的值展示"),
     ];
 
     // 实例化Tab控制器
@@ -89,6 +91,7 @@ class _PageFormsDemoPageState extends State<PageFormsDemoPage>
         children: [
           SelecteValuesBaseDemo(),
           BaseSelectValuesWidgetDemoPage(),
+          SelectedValuesDisplayDemoPage(),
         ],
         controller: _tabController,
       ),

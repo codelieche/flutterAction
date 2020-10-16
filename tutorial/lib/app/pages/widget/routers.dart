@@ -35,6 +35,11 @@ import 'draggable/index.dart';
 import 'table/index.dart';
 import 'provider/index.dart';
 
+// 表单组件
+import 'textField/index.dart';
+import 'radio/index.dart';
+import 'checkbox/index.dart';
+
 Map<String, Function> widgetRoutes = {
   // 基础组件：simple
   "/widget/text/index": (context) => TextWidgetIndexPage(),
@@ -63,4 +68,9 @@ Map<String, Function> widgetRoutes = {
   "/widget/draggable/index": (context) => DraggableIndexPage(),
   "/widget/table/index": (context) => TableDemoIndexPage(),
   "/widget/provider/index": (context) => ProviderIndexPage(),
+
+  // 表单组件
+  "/widget/textfield/index": (context) => TextFieldIndexDemoPage(),
+  "/widget/radio/index": (context) => RadioIndexDemoPage(),
+  "/widget/checkbox/index": (context) => CheckBoxIndexDemoPage(),
 };

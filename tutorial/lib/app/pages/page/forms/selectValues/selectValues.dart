@@ -5,19 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:tutorial/app/components/base/toast.dart';
 import 'package:tutorial/app/variables.dart';
 
-class SelectedValueItem {
-  dynamic value; // 选项的值
-  String label; // 展示的标签
-
-  SelectedValueItem({@required this.value, @required this.label});
-
-  bool containsString(String value) {
-    return "${this.value}${this.label}"
-            .toLowerCase()
-            .indexOf(value.toLowerCase()) >=
-        0;
-  }
-}
+import 'models.dart';
 
 class BaseSelectValuesWidget extends StatefulWidget {
   final bool isMultiple; // 是单选的还是多选的
