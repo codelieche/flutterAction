@@ -92,6 +92,10 @@ class _PageFormsDemoPageState extends State<PageFormsDemoPage>
           SelecteValuesBaseDemo(),
           BaseSelectValuesWidgetDemoPage(),
           SelectedValuesDisplayDemoPage(),
+          // 这个示例展示功能，用到的重点文件：
+          // 1. selectValues/models.dart
+          // 2. selectValues/selectValues.dart
+          // 3. selectedDisplay/display.dart
         ],
         controller: _tabController,
       ),

@@ -9,12 +9,12 @@ import 'models.dart';
 
 class BaseSelectValuesWidget extends StatefulWidget {
   final bool isMultiple; // 是单选的还是多选的
-  final dynamic values; // 默认的值
-  final List<SelectedValueItem> items; // 选项列表
+  final dynamic values; // 默认的值【重点】
+  final List<SelectedValueItem> items; // 选项列表【重点】
   final String searchText; // 搜索提示字符
   final double maxHeight; // 弹出的选项的最大高度
   final Color activeColor; // 选择的颜色
-  final Function(dynamic values) callback; // 回调函数
+  final Function(dynamic values) callback; // 回调函数【重点】
   BaseSelectValuesWidget({
     Key key,
     this.isMultiple = false,
@@ -205,8 +205,64 @@ class _BaseSelectValuesWidgetState extends State<BaseSelectValuesWidget> {
     return listView;
   }
 
+  // 是多选的时候，底部有个全选和反选的按钮
+  Widget buildCheckBoxBottomButtonWidget() {
+    return Wrap(
+      spacing: 10,
+      alignment: WrapAlignment.end,
+      children: [
+        Container(
+          height: 30,
+          child: OutlineButton(
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+            onPressed: () {
+              if (widget.isMultiple && values is List) {
+                var newValues = [];
+                for (var item in dataSource) {
+                  if (values.indexOf(item.value) < 0) {
+                    newValues.add(item.value);
+                  }
+                }
+                setState(() {
+                  values = newValues;
+                });
+              }
+            },
+            child: Text(
+              "反选",
+              style: TextStyle(fontSize: 13, color: Colors.black54),
+            ),
+          ),
+        ),
+        Container(
+          height: 30,
+          child: OutlineButton(
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+            onPressed: () {
+              // 全部选择
+              if (widget.isMultiple) {
+                values = [];
+                for (var item in dataSource) {
+                  values.add(item.value);
+                }
+                setState(() {
+                  values = values;
+                });
+              }
+            },
+            child: Text(
+              "全选",
+              style: TextStyle(fontSize: 13, color: Colors.black54),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     // print(values);
     // 选项元素
     Widget listView;
@@ -237,11 +293,12 @@ class _BaseSelectValuesWidgetState extends State<BaseSelectValuesWidget> {
           // 顶部：搜索 + 2个按钮
           Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border(
-                  top: BorderSide(width: 0.5, color: Colors.grey[400]),
-                  bottom: BorderSide(width: 0.5, color: Colors.grey[400]),
-                )),
+              color: Colors.white,
+              border: Border(
+                top: BorderSide(width: 0.5, color: Colors.grey[400]),
+                bottom: BorderSide(width: 0.5, color: Colors.grey[400]),
+              ),
+            ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -354,6 +411,40 @@ class _BaseSelectValuesWidgetState extends State<BaseSelectValuesWidget> {
               child: listView,
             ),
           ),
+          // 当前选中的值
+
+          // 底部，全选
+          Container(
+            width: size.width,
+            decoration: BoxDecoration(
+              color: Colors.grey[50],
+              // border: Border(
+              //   // top: BorderSide(width: 0.5, color: Colors.grey[200]),
+              // ),
+            ),
+            padding: EdgeInsets.only(bottom: 10, left: 10, right: 10, top: 10),
+            margin: EdgeInsets.only(bottom: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    child: Text(
+                      "${values != null && values != [] ? "当前选中的值为：$values" : "请选择"}",
+                      style: TextStyle(fontSize: 12, color: Colors.black45),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                widget.isMultiple
+                    ? buildCheckBoxBottomButtonWidget()
+                    : SizedBox(width: 1, height: 1)
+              ],
+            ),
+          )
         ],
       ),
     );

@@ -87,6 +87,11 @@ class _SelectedValueDisplayModelDemoState
               isMultiple: true,
               borderColor: Colors.grey[400],
               backgroundColor: Colors.green[100].withOpacity(0.6),
+              callback: (v) {
+                // 当弹出的选择框确定之后，就会执行这个函数糊了
+                // 输出值
+                print("值变更了：$v");
+              },
             ),
           ),
         ],

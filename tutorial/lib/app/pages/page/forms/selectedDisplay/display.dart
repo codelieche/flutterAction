@@ -1,3 +1,9 @@
+// 展示SelectedValues
+// 重点文件：
+// 1. models.dart
+// 2. selectValues.dart
+// 3. display.dart
+
 import 'package:flutter/material.dart';
 import '../selectValues/selectValues.dart';
 import '../selectValues/models.dart';
@@ -8,12 +14,14 @@ class DisplaySelectedValues extends StatefulWidget {
   final bool isMultiple;
   final Color borderColor;
   final Color backgroundColor;
+  final Function(dynamic values) callback; // 回调函数【重点】
   DisplaySelectedValues({
     Key key,
     @required this.items,
     @required this.values,
     this.borderColor = Colors.grey,
     this.backgroundColor = Colors.white,
+    this.callback,
     this.isMultiple = false,
   }) : super(key: key);
 
@@ -72,6 +80,10 @@ class _DisplaySelectedValuesState extends State<DisplaySelectedValues> {
             setState(() {
               values = v;
             });
+            // 判断是否传递了callback
+            if (widget.callback != null) {
+              widget.callback(v);
+            }
           },
         );
         return SingleChildScrollView(
