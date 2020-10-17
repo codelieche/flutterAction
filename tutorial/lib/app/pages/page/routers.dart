@@ -47,7 +47,7 @@ Map<String, Function> pageRoutes = {
   "/page/screenadapter/index": (context) => ScreenAdapterIndexPage(),
 
   // 表单
-  "/page/forms/index": (context) => PageFormsDemoPage(),
+  "/page/forms/index": (context) => PageFormsDemoIndexPage(),
 
   // 错误页
   "/page/error/index": (context) => ErrorsIndexPage(),

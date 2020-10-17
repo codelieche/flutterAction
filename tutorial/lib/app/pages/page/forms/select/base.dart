@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial/app/components/items/title.dart';
-import 'selectValues/selectValues.dart';
+import './selectValues/selectValues.dart';
 
 import './selectValues/models.dart';
 
