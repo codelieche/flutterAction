@@ -23,6 +23,7 @@ class BaseInputWidget extends StatefulWidget {
   final Function(String value) onFieldSubmitted; // 当字段提交的时候
   final TextInputType keyboardType; // 键盘类型
   final Brightness keyboardAppearance; // 键盘颜色
+  final bool obscureText; // 是否是密码
   BaseInputWidget({
     Key key,
     this.focusNode,
@@ -45,6 +46,7 @@ class BaseInputWidget extends StatefulWidget {
     this.onFieldSubmitted,
     this.keyboardType = TextInputType.text, // 键盘类型
     this.keyboardAppearance = Brightness.light, // 键盘颜色：默认白色
+    this.obscureText = false, // 是否是密码
   }) : super(key: key);
 
   @override
@@ -72,6 +74,13 @@ class _BaseInputWidgetState extends State<BaseInputWidget> {
     } else {
       _textEditingController = TextEditingController(text: widget.initialValue);
     }
+  }
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -175,6 +184,7 @@ class _BaseInputWidgetState extends State<BaseInputWidget> {
               ),
               keyboardType: widget.keyboardType,
               keyboardAppearance: Brightness.light,
+              obscureText: widget.obscureText, // 是否是密码
             ),
           ),
 

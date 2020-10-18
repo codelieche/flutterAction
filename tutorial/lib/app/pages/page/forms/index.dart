@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // 引入示例
 import 'text/index.dart';
 import 'select/index.dart';
+import 'info/index.dart';
 
 class PageFormsDemoIndexPage extends StatefulWidget {
   PageFormsDemoIndexPage({Key key}) : super(key: key);
@@ -39,6 +40,19 @@ class _PageFormsDemoIndexPageState extends State<PageFormsDemoIndexPage> {
               // 跳转选择的实例
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return PageFormsSelectIndexPage();
+              }));
+            },
+          ),
+          Divider(height: 4),
+
+          // 3. info展示
+          ListTile(
+            leading: Icon(Icons.arrow_right),
+            title: Text("Info: 信息的展示"),
+            onTap: () {
+              // 跳转选择的实例
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return PageFormsInfoDemoIndexPage();
               }));
             },
           ),

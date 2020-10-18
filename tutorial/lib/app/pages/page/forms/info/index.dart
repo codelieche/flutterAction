@@ -1,3 +1,4 @@
+// 信息展示
 // Tab基本页面
 // 1. 基本：Text("Base")
 // 2. 测试：Text("Test")
@@ -5,17 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:tutorial/app/variables.dart';
 
 // 引入示例
-import 'input.dart';
+import 'base.dart';
 
-class PageFormsTextDemoIndexPage extends StatefulWidget {
-  PageFormsTextDemoIndexPage({Key key}) : super(key: key);
+class PageFormsInfoDemoIndexPage extends StatefulWidget {
+  PageFormsInfoDemoIndexPage({Key key}) : super(key: key);
 
   @override
-  _PageFormsTextDemoIndexPageState createState() =>
-      _PageFormsTextDemoIndexPageState();
+  _PageFormsInfoDemoIndexPageState createState() =>
+      _PageFormsInfoDemoIndexPageState();
 }
 
-class _PageFormsTextDemoIndexPageState extends State<PageFormsTextDemoIndexPage>
+class _PageFormsInfoDemoIndexPageState extends State<PageFormsInfoDemoIndexPage>
     with SingleTickerProviderStateMixin {
   int _currentIndex = 0; // 当前选中的tab的index
   List<Widget> _tabs = []; // tab列表
@@ -28,7 +29,7 @@ class _PageFormsTextDemoIndexPageState extends State<PageFormsTextDemoIndexPage>
     super.initState();
     // tabs
     _tabs = [
-      Tab(text: "Input"),
+      Tab(text: "基本"),
       Tab(text: "测试"),
     ];
 
@@ -69,7 +70,7 @@ class _PageFormsTextDemoIndexPageState extends State<PageFormsTextDemoIndexPage>
     // 脚手架
     Scaffold scaffold = Scaffold(
       appBar: AppBar(
-        title: Text("表单：text"),
+        title: Text("表单:Info"),
         elevation: 1.0,
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(48),
@@ -87,7 +88,7 @@ class _PageFormsTextDemoIndexPageState extends State<PageFormsTextDemoIndexPage>
       ),
       body: TabBarView(
         children: [
-          PageFormsTextBaseDemoPage(),
+          PageFormsInfoBaseDemoPage(),
           Text("Test"),
         ],
         controller: _tabController,

@@ -1,5 +1,8 @@
 // 页面表单文本输入相关的示例
-
+// 本页面主要部分：
+// 1. TextField 示例
+// 2. TextFormField 示例
+// 3. BaseInputWidget 的使用
 import 'package:flutter/material.dart';
 import 'package:tutorial/app/components/forms/input.dart';
 import 'package:tutorial/app/components/items/title.dart';
@@ -299,6 +302,41 @@ class _PageFormsTextBaseDemoPageState extends State<PageFormsTextBaseDemoPage> {
                   hintText: "Email",
                   borderWidth: 0.5,
                   keyboardType: TextInputType.emailAddress,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: BaseInputWidget(
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    size: 16,
+                  ),
+                  hintText: "password",
+                  borderWidth: 0.5,
+                  keyboardType: TextInputType.emailAddress,
+                  obscureText: true,
+                  showClearButton: true,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: BaseInputWidget(
+                  prefixIcon: Icon(
+                    Icons.phone,
+                    size: 16,
+                  ),
+                  hintText: "phone",
+                  borderWidth: 0,
+                  borderColor: Colors.grey,
+                  backgroundColor: Colors.grey.withOpacity(0.2),
+                  keyboardType: TextInputType.phone,
+                  showClearButton: true,
                 ),
               ),
             ],
