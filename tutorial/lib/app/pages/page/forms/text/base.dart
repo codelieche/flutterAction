@@ -1,6 +1,7 @@
 // 页面表单文本输入相关的示例
 
 import 'package:flutter/material.dart';
+import 'package:tutorial/app/components/forms/input.dart';
 import 'package:tutorial/app/components/items/title.dart';
 import 'package:tutorial/app/variables.dart';
 
@@ -21,6 +22,9 @@ class _PageFormsTextBaseDemoPageState extends State<PageFormsTextBaseDemoPage> {
 
   bool _searchShowClear = false;
   bool _searchShowClear2 = false;
+
+  // 值
+  String values = ""; // 自定义按钮要用到
   @override
   Widget build(BuildContext context) {
     // 主体内容
@@ -33,7 +37,7 @@ class _PageFormsTextBaseDemoPageState extends State<PageFormsTextBaseDemoPage> {
             description: "search input,可剥离出来成自定义的TextField",
           ),
 
-          // 搜索输入框
+          // 搜索输入框: 这个使用 TextField, 边框和颜色采用Container来设置
           Row(
             children: [
               Expanded(
@@ -181,6 +185,8 @@ class _PageFormsTextBaseDemoPageState extends State<PageFormsTextBaseDemoPage> {
                             size: 18,
                             color: Colors.black54,
                           ),
+                          hintText: "search",
+                          hintStyle: TextStyle(fontSize: 13),
                           prefixIconConstraints: BoxConstraints(
                             minWidth: 35,
                             minHeight: 35,
@@ -199,20 +205,20 @@ class _PageFormsTextBaseDemoPageState extends State<PageFormsTextBaseDemoPage> {
                             ),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(3),
                             borderSide: BorderSide(
                               color: Colors.grey[400],
                               width: 1,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(3),
                             borderSide: BorderSide(
-                              color: AppPrimaryColor,
+                              color: Colors.grey[400],
                               width: 1,
                             ),
                           ),
-                          fillColor: Colors.grey[100],
+                          fillColor: Colors.grey[200], // 填充颜色
                           filled: true,
                         ),
                         style: TextStyle(
@@ -262,6 +268,83 @@ class _PageFormsTextBaseDemoPageState extends State<PageFormsTextBaseDemoPage> {
                             ),
                           ),
                   ],
+                ),
+              )
+            ],
+          ),
+
+          SimpleTitleWidget(
+            title: "BaseInputWidget",
+            description: "自己封装的输入框",
+          ),
+
+          Row(
+            children: [
+              Expanded(
+                child: BaseInputWidget(
+                  prefixIcon: Icon(
+                    Icons.group,
+                    size: 16,
+                  ),
+                  hintText: "username",
+                  borderWidth: 0.5,
+                ),
+              ),
+              Expanded(
+                child: BaseInputWidget(
+                  prefixIcon: Icon(
+                    Icons.email,
+                    size: 16,
+                  ),
+                  hintText: "Email",
+                  borderWidth: 0.5,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  child: Text(
+                    "当前输入框输入的内容是：$values",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  child: BaseInputWidget(
+                    height: 30,
+                    prefixIcon: Icon(
+                      Icons.search,
+                      size: 14,
+                      color: Colors.black54,
+                    ),
+                    hintText: "search",
+                    showClearButton: true,
+                    borderColor: Colors.grey[400],
+                    backgroundColor: Colors.grey[200],
+                    focusBorderColor: AppPrimaryColor,
+                    borderRadius: 15,
+                    onChange: (value) {
+                      setState(() {
+                        values = value;
+                      });
+                    },
+                    onFieldSubmitted: (value) {
+                      print("onFieldSubmitted: $value");
+                    },
+                  ),
                 ),
               )
             ],
