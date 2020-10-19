@@ -90,6 +90,8 @@ class _AppHomePageState extends State<AppHomePage> {
       debugShowCheckedModeBanner: false, // 默认是true，是否在模拟器右上角显示个debug标识
       theme: ThemeData(
         primaryColor: AppPrimaryColor,
+        // isDark ? Colors.grey[850] : Colors.grey[50];
+        // scaffoldBackgroundColor: Colors.white,
       ),
       // home: homeScaffold,
       initialRoute: "/", // 初始化的时候加载的路由

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tutorial/app/variables.dart';
 
@@ -19,19 +20,31 @@ class _UserCenterDemo02State extends State<UserCenterDemo02> {
             Expanded(
               child: Container(
                 height: 150,
-                color: Colors.pink[400],
+                // color: Colors.pink[400],
+                color: AppPrimaryColor,
                 child: Row(
                   children: [
                     Container(
                       // width: 100,
-                      padding: EdgeInsets.only(top: 15, left: 10, right: 10),
+                      padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+                      margin: EdgeInsets.symmetric(horizontal: 5),
                       child: ClipOval(
                         child: Container(
-                          color: Colors.white,
-                          child: Image.asset(
-                            "asserts/images/codelieche-logo-blue.png",
-                            width: 70,
-                            height: 70,
+                          width: 60,
+                          height: 60,
+                          // child: Image.asset(
+                          //   "asserts/images/codelieche-logo-blue.png",
+                          //   width: 70,
+                          //   height: 70,
+                          // ),
+                          alignment: Alignment.center,
+                          child: Icon(
+                            CupertinoIcons.person_alt,
+                            color: Colors.grey[400],
+                            size: 35,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[200],
                           ),
                         ),
                       ),

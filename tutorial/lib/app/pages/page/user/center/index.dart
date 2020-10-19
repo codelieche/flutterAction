@@ -2,8 +2,10 @@
 // 我们会设置多个用户登录页
 import 'package:flutter/material.dart';
 
-// 引入示例1
-import './demo01.dart';
+// 用户信息示例
+import 'info01.dart';
+
+// 用户中心示例：
 import './demo02.dart';
 
 class UserCenterIndexPage extends StatefulWidget {
@@ -21,11 +23,11 @@ class _UserCenterIndexPageState extends State<UserCenterIndexPage> {
       children: [
         ListTile(
           leading: Icon(Icons.arrow_right),
-          title: Text("用户中心示例1"),
-          subtitle: Text("username、password、button"),
+          title: Text("个人信息页01"),
+          subtitle: Text("头像、昵称、邮箱、简介等信息"),
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return UserCenterDemo01();
+              return UserCenterInfoDemo01();
             }));
           },
         ),
