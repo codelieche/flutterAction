@@ -56,6 +56,15 @@ class _SimpleWidgetPageState extends State<SimpleWidgetPage> {
         ),
         Divider(height: 5),
         ListTile(
+          leading: Icon(Icons.grid_on),
+          title: Text("CustomScrollView"),
+          onTap: () {
+            // 跳转去网格组件首页
+            Navigator.pushNamed(context, "/widget/customscrollview/index");
+          },
+        ),
+        Divider(height: 5),
+        ListTile(
           leading: Icon(Icons.date_range),
           title: Text("Datetime: 时间组件"),
           onTap: () {

@@ -2,7 +2,6 @@
  * 组件示例相关的路由
  * 前缀：/widget/
  */
-import 'package:flutter/material.dart';
 import 'package:tutorial/app/pages/widget/column/index.dart';
 
 // 引入/widget相关的页面
@@ -13,6 +12,7 @@ import 'image/index.dart';
 import 'button/index.dart';
 import 'listview/index.dart';
 import 'gridview/index.dart';
+import 'customScrollView/index.dart';
 import 'datetime/index.dart';
 import 'other/simpleOtherIndex.dart';
 
@@ -47,6 +47,8 @@ Map<String, Function> widgetRoutes = {
   "/widget/button/index": (context) => ButtonWidgetIndexPage(),
   "/widget/listview/index": (context) => ListViewWidgetIndexPage(),
   "/widget/gridview/index": (context) => GridViewWidgetIndexPage(),
+  "/widget/customscrollview/index": (context) =>
+      CustomScrollViewDemoIndexPage(),
   "/widget/datetime/index": (context) => DateTimeIndexPage(),
   "/widget/other/simple/index": (context) => SimpleOtherWidgetIndexPage(),
 

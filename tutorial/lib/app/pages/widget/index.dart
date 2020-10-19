@@ -86,6 +86,7 @@ class _WidgetIndexPageState extends State<WidgetIndexPage>
     Scaffold scaffold = Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        brightness: Brightness.light,
         leading: IconButton(
           icon: Icon(
             Icons.menu,

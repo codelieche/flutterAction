@@ -20,6 +20,7 @@ class _BottomNavigationBarDemoPage02State
     extends State<BottomNavigationBarDemoPage02> {
   int _currentBarIndex = 0; // 当前选中的导航bar
   List<Widget> _bodyPages = []; // 导航bar对应的页面
+  PageController _pageController = PageController(); // PageView控制器
 
   @override
   void initState() {
@@ -83,6 +84,9 @@ class _BottomNavigationBarDemoPage02State
           // 设置选中的导航bar
           _currentBarIndex = index;
         });
+
+        // 页面控制器跳转页面
+        _pageController.jumpToPage(index);
       },
       iconSize: 24.0, // 图标icon的大小,
       selectedFontSize: 12, // 选中的文字大小，默认是14
@@ -95,7 +99,16 @@ class _BottomNavigationBarDemoPage02State
       // appBar: AppBar(
       //   title: Text("底部导航"),
       // ),
-      body: _bodyPages[_currentBarIndex], // 主体内容
+      // body: _bodyPages[_currentBarIndex], // 主体内容: 不包裹PageView
+      body: PageView(
+        controller: _pageController,
+        children: _bodyPages,
+        onPageChanged: (index) {
+          setState(() {
+            _currentBarIndex = index;
+          });
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print("floatingActionButton");
