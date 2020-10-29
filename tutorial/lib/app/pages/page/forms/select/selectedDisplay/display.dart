@@ -5,6 +5,7 @@
 // 3. display.dart
 
 import 'package:flutter/material.dart';
+import '../../../../../variables.dart';
 import '../selectValues/selectValues.dart';
 import '../selectValues/models.dart';
 
@@ -12,6 +13,9 @@ class DisplaySelectedValues extends StatefulWidget {
   final List<SelectedValueItem> items;
   final dynamic values;
   final bool isMultiple;
+  final String searchText; // 搜索提示字符
+  final double maxHeight; // 弹出的选项的最大高度
+  final Color activeColor; // 选择的颜色
   final Color borderColor;
   final Color backgroundColor;
   final Function(dynamic values) callback; // 回调函数【重点】
@@ -19,6 +23,9 @@ class DisplaySelectedValues extends StatefulWidget {
     Key key,
     @required this.items,
     @required this.values,
+    this.searchText = "search",
+    this.maxHeight = 300.0,
+    this.activeColor = AppPrimaryColor,
     this.borderColor = Colors.grey,
     this.backgroundColor = Colors.white,
     this.callback,
@@ -75,7 +82,9 @@ class _DisplaySelectedValuesState extends State<DisplaySelectedValues> {
           isMultiple: widget.isMultiple,
           items: dataSource,
           values: values,
-          activeColor: Colors.pinkAccent,
+          activeColor: widget.activeColor,
+          maxHeight: widget.maxHeight,
+          searchText: widget.searchText,
           callback: (v) {
             setState(() {
               values = v;
@@ -97,6 +106,20 @@ class _DisplaySelectedValuesState extends State<DisplaySelectedValues> {
         );
       },
     );
+  }
+
+  @override
+  void didUpdateWidget(DisplaySelectedValues oldWidget) {
+    // print("oldWidget: ${oldWidget.items}");
+    // print("newWidget: ${widget.items}");
+    if (oldWidget.items != widget.items) {
+      // print("items变更了");
+      dataSource = widget.items;
+      // setState(() {
+      //   dataSource = widget.items;
+      // });
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override

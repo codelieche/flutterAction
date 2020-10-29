@@ -25,6 +25,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+// app打包签名添加的代码
+def keystoreProperties = new Properties()
+// key.properties中会有签名证书的密码和路径，不要加入到代码仓库中！！！
+def keystorePropertiesFile = rootProject.file('../../../flutter/tutorial/key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+// app打包签名添加的代码
+
 android {
     compileSdkVersion 28
 
@@ -45,11 +54,24 @@ android {
         versionName flutterVersionName
     }
 
+    // app打包签名添加的代码
+    signingConfigs {
+       release {
+           keyAlias keystoreProperties['keyAlias']
+           keyPassword keystoreProperties['keyPassword']
+           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storePassword keystoreProperties['storePassword']
+       }
+   }
+   // app打包签名添加的代码
+
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            // signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }

@@ -55,20 +55,26 @@ class _AppHomeTabsState extends State<AppHomeTabs> {
       currentIndex: _currentBarIndex, // 当前选中的bar
       items: [
         // 底部导航的tab选项
-        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            // title: Text("首页"),
+            label: "首页"),
         BottomNavigationBarItem(
           // 基本组件的使用示例
           icon: Icon(Icons.widgets),
-          title: Text("组件"),
+          // title: Text("组件"),
+          label: "组件",
         ),
         BottomNavigationBarItem(
           // 整个页面的示例：比如：登录页、注册、用户也等
           icon: Icon(Icons.code),
-          title: Text("示例"),
+          // title: Text("示例"),
+          label: "示例",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.account_circle),
-          title: Text("用户"),
+          // title: Text("用户"),
+          label: "用户",
         ),
       ], // 导航bar列表
 
