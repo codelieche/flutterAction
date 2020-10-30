@@ -74,7 +74,7 @@ class _CardBaseDemoPageState extends State<CardBaseDemoPage> {
               AspectRatio(
                 aspectRatio: 16 / 4,
                 // child: Image.asset(
-                //   "asserts/images/codelieche-blue.png",
+                //   "assets/images/codelieche-blue.png",
                 //   // fit: BoxFit.cover,
                 // ),
                 child: Image.network(
@@ -85,7 +85,7 @@ class _CardBaseDemoPageState extends State<CardBaseDemoPage> {
               // 文字
               ListTile(
                 leading: ClipOval(
-                  child: Image.asset("asserts/images/codelieche-logo-blue.png"),
+                  child: Image.asset("assets/images/codelieche-logo-blue.png"),
                 ),
                 title: Text(
                   "编程列车",
@@ -105,7 +105,7 @@ class _CardBaseDemoPageState extends State<CardBaseDemoPage> {
               AspectRatio(
                 aspectRatio: 16 / 4,
                 // child: Image.asset(
-                //   "asserts/images/codelieche-blue.png",
+                //   "assets/images/codelieche-blue.png",
                 //   // fit: BoxFit.cover,
                 // ),
                 child: Image.network(
@@ -116,7 +116,7 @@ class _CardBaseDemoPageState extends State<CardBaseDemoPage> {
               // 文字
               ListTile(
                 leading: CircleAvatar(
-                  child: Image.asset("asserts/images/codelieche-logo-blue.png"),
+                  child: Image.asset("assets/images/codelieche-logo-blue.png"),
                 ),
                 title: Text(
                   "codelieche",

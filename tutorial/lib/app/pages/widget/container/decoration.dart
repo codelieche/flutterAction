@@ -87,7 +87,7 @@ class ContainerDecorationDemo extends StatelessWidget {
               margin: EdgeInsets.all(5),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("asserts/images/codelieche-blue.png"),
+                      image: AssetImage("assets/images/codelieche-blue.png"),
                       fit: BoxFit.contain),
                   // 设置边框的圆角为20
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -109,7 +109,7 @@ class ContainerDecorationDemo extends StatelessWidget {
                       // colorFilter: ColorFilter.mode(
                       //     Colors.lightBlue, BlendMode.colorBurn),
                       image:
-                          AssetImage("asserts/images/codelieche-logo-blue.png"),
+                          AssetImage("assets/images/codelieche-logo-blue.png"),
                       fit: BoxFit.contain),
                   // 设置边框的圆角为20
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),

@@ -47,7 +47,7 @@ class _UserCenterInfoDemo01State extends State<UserCenterInfoDemo01> {
                             height: 40,
                             color: Colors.grey[200],
                             // child: Image.asset(
-                            //   "asserts/images/codelieche-logo-blue.png",
+                            //   "assets/images/codelieche-logo-blue.png",
                             //   width: 40,
                             //   height: 40,
                             // ),

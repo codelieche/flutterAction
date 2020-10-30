@@ -79,7 +79,7 @@ class _RaisedButtonDemoPageState extends State<RaisedButtonDemoPage> {
                 height: 30,
                 child: Row(
                   children: [
-                    Image.asset("asserts/images/codelieche-logo-blue.png"),
+                    Image.asset("assets/images/codelieche-logo-blue.png"),
                     Text("编程列车")
                   ],
                 ),

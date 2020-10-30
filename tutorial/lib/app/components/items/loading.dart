@@ -32,7 +32,7 @@ class _LoadingWidgetState extends State<LoadingWidget> {
             Container(
               width: widget.imageWidth,
               height: widget.imageWidth,
-              child: Image.asset("asserts/images/loading.gif"),
+              child: Image.asset("assets/images/loading.gif"),
             ),
             Container(
               padding: EdgeInsets.all(5),
@@ -57,7 +57,7 @@ class _LoadingWidgetState extends State<LoadingWidget> {
             Container(
               width: widget.imageWidth,
               height: widget.imageWidth,
-              child: Image.asset("asserts/images/loading.gif"),
+              child: Image.asset("assets/images/loading.gif"),
             ),
             Container(
               padding: EdgeInsets.all(5),

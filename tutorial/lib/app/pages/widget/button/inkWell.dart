@@ -106,7 +106,7 @@ class _InkWellDemoPageState extends State<InkWellDemoPage> {
                 color: Colors.grey[300],
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(2.0),
-                child: Image.asset("asserts/images/codelieche-blue.png"),
+                child: Image.asset("assets/images/codelieche-blue.png"),
               ),
             ),
             InkWell(
@@ -114,7 +114,7 @@ class _InkWellDemoPageState extends State<InkWellDemoPage> {
               child: Container(
                 // color: Colors.white, // 设置了decoration就不可设置color了
                 alignment: Alignment.center,
-                child: Image.asset("asserts/images/codelieche-logo-blue.png"),
+                child: Image.asset("assets/images/codelieche-logo-blue.png"),
                 padding: EdgeInsets.all(2.0),
                 decoration: BoxDecoration(
                   color: Colors.white,

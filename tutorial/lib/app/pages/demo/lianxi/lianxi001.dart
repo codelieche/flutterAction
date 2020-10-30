@@ -84,9 +84,9 @@ class _GoodsList2 extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          _GoodsItem2(image: "asserts/images/codelieche-blue.png"),
-          _GoodsItem2(image: "asserts/images/codelieche-logo-blue.png"),
-          _GoodsItem2(image: "asserts/images/codelieche-blue.png"),
+          _GoodsItem2(image: "assets/images/codelieche-blue.png"),
+          _GoodsItem2(image: "assets/images/codelieche-logo-blue.png"),
+          _GoodsItem2(image: "assets/images/codelieche-blue.png"),
         ],
       ),
     );
@@ -188,7 +188,7 @@ class _GoodsItem extends StatelessWidget {
   final Function onPress;
   const _GoodsItem({
     Key key,
-    this.image = "asserts/images/codelieche-blue.png",
+    this.image = "assets/images/codelieche-blue.png",
     this.title,
     this.subTitle,
     this.price,
@@ -378,7 +378,7 @@ class _HeaderAndSerch extends StatelessWidget {
                     color: Colors.white.withOpacity(0.9),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Image.asset("asserts/images/codelieche-logo-blue.png"),
+                  child: Image.asset("assets/images/codelieche-logo-blue.png"),
                 ),
               ],
             ),

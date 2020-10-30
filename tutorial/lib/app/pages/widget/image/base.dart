@@ -28,7 +28,7 @@ class _ImageBaseDemoPageState extends State<ImageBaseDemoPage> {
               height: 150,
               margin: EdgeInsets.all(5),
               child: Image.asset(
-                "asserts/images/codelieche-blue.png",
+                "assets/images/codelieche-blue.png",
               ),
             ),
             Container(
@@ -37,7 +37,7 @@ class _ImageBaseDemoPageState extends State<ImageBaseDemoPage> {
               height: 150,
               margin: EdgeInsets.all(5),
               child: Image.asset(
-                "asserts/images/codelieche-logo-blue.png",
+                "assets/images/codelieche-logo-blue.png",
               ),
             ),
           ],
@@ -82,7 +82,7 @@ class _ImageBaseDemoPageState extends State<ImageBaseDemoPage> {
                     color: Colors.grey[400],
                     child: Image(
                       image:
-                          AssetImage("asserts/images/codelieche-logo-blue.png"),
+                          AssetImage("assets/images/codelieche-logo-blue.png"),
                       height: 60,
                     ))),
             Expanded(
@@ -91,7 +91,7 @@ class _ImageBaseDemoPageState extends State<ImageBaseDemoPage> {
                     color: Colors.grey[200],
                     child: Image(
                       height: 60,
-                      image: AssetImage("asserts/images/codelieche-blue.png"),
+                      image: AssetImage("assets/images/codelieche-blue.png"),
                     )))
           ],
         ),
@@ -106,14 +106,14 @@ class _ImageBaseDemoPageState extends State<ImageBaseDemoPage> {
             Expanded(
                 child: FadeInImage.assetNetwork(
                     // 网络图片加载之前先显示本地的一个资源图片
-                    placeholder: "asserts/images/codelieche-logo-blue.png",
+                    placeholder: "assets/images/codelieche-logo-blue.png",
                     // 网络图片地址
                     image:
                         "http://static.codelieche.com/docs/images/2020/07/07160050_86.png")),
             Expanded(
                 child: FadeInImage.assetNetwork(
                     // 网络图片加载之前先显示本地的一个资源图片
-                    placeholder: "asserts/images/codelieche-logo-blue.png",
+                    placeholder: "assets/images/codelieche-logo-blue.png",
                     // 网络图片地址
                     image:
                         "http://static.codelieche.com/docs/images/2020/07/01114209_82.png"))

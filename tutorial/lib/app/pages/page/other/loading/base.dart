@@ -89,7 +89,7 @@ class _LoadingBaseDemoState extends State<LoadingBaseDemo> {
                       Container(
                         width: 25,
                         height: 25,
-                        child: Image.asset("asserts/images/loading.gif"),
+                        child: Image.asset("assets/images/loading.gif"),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(

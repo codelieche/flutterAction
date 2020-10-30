@@ -25,7 +25,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
               width: 100,
               height: 120,
               child: Image.asset(
-                "asserts/images/codelieche-logo-blue.png",
+                "assets/images/codelieche-logo-blue.png",
               ),
             ),
             Container(
@@ -33,7 +33,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
               width: 100,
               height: 120,
               child: Image.asset(
-                "asserts/images/codelieche-blue.png",
+                "assets/images/codelieche-blue.png",
                 fit: BoxFit.contain,
               ),
             ),
@@ -54,7 +54,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   margin: EdgeInsets.all(5),
                   width: 100,
                   height: 120,
-                  child: Image.asset("asserts/images/codelieche-logo-blue.png",
+                  child: Image.asset("assets/images/codelieche-logo-blue.png",
                       fit: BoxFit.fitWidth),
                 )),
             Expanded(
@@ -64,7 +64,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   margin: EdgeInsets.all(5),
                   width: 100,
                   height: 120,
-                  child: Image.asset("asserts/images/codelieche-logo-blue.png",
+                  child: Image.asset("assets/images/codelieche-logo-blue.png",
                       fit: BoxFit.fitHeight),
                 )),
             Expanded(
@@ -74,7 +74,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   margin: EdgeInsets.all(5),
                   width: 100,
                   height: 120,
-                  child: Image.asset("asserts/images/codelieche-blue.png",
+                  child: Image.asset("assets/images/codelieche-blue.png",
                       fit: BoxFit.fitWidth),
                 )),
             Expanded(
@@ -84,7 +84,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   margin: EdgeInsets.all(5),
                   width: 100,
                   height: 120,
-                  child: Image.asset("asserts/images/codelieche-blue.png",
+                  child: Image.asset("assets/images/codelieche-blue.png",
                       fit: BoxFit.fitHeight),
                 )),
           ],
@@ -103,7 +103,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   margin: EdgeInsets.all(5),
                   color: Colors.grey[400],
                   height: 120,
-                  child: Image.asset("asserts/images/codelieche-logo-blue.png",
+                  child: Image.asset("assets/images/codelieche-logo-blue.png",
                       fit: BoxFit.cover),
                 )),
             Expanded(
@@ -113,7 +113,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   color: Colors.grey[400],
                   height: 120,
                   child: Image.asset(
-                    "asserts/images/codelieche-blue.png",
+                    "assets/images/codelieche-blue.png",
                     fit: BoxFit.cover,
                   ),
                 )),
@@ -133,7 +133,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   margin: EdgeInsets.all(5),
                   color: Colors.grey[400],
                   height: 120,
-                  child: Image.asset("asserts/images/codelieche-logo-blue.png",
+                  child: Image.asset("assets/images/codelieche-logo-blue.png",
                       fit: BoxFit.none),
                 )),
             Expanded(
@@ -143,7 +143,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   color: Colors.grey[400],
                   height: 120,
                   child: Image.asset(
-                    "asserts/images/codelieche-blue.png",
+                    "assets/images/codelieche-blue.png",
                     fit: BoxFit.none,
                   ),
                 )),
@@ -163,7 +163,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   margin: EdgeInsets.all(5),
                   color: Colors.grey[400],
                   height: 120,
-                  child: Image.asset("asserts/images/codelieche-logo-blue.png",
+                  child: Image.asset("assets/images/codelieche-logo-blue.png",
                       fit: BoxFit.scaleDown),
                 )),
             Expanded(
@@ -173,7 +173,7 @@ class _ImageFitDemoPageState extends State<ImageFitDemoPage> {
                   color: Colors.grey[400],
                   height: 120,
                   child: Image.asset(
-                    "asserts/images/codelieche-blue.png",
+                    "assets/images/codelieche-blue.png",
                     fit: BoxFit.scaleDown,
                   ),
                 )),

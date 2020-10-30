@@ -76,7 +76,7 @@ class _RadioListTileBaseDemoPageState extends State<RadioListTileBaseDemoPage> {
               },
               title: Text("编程列车"),
               subtitle: Text("www.codelieche.com"),
-              secondary: Image.asset("asserts/images/codelieche-logo-blue.png"),
+              secondary: Image.asset("assets/images/codelieche-logo-blue.png"),
             ),
           ],
         ),
@@ -113,7 +113,7 @@ class _RadioListTileBaseDemoPageState extends State<RadioListTileBaseDemoPage> {
               title: Text("编程列车"),
               subtitle: Text("www.codelieche.com"),
               // 设置图标或者图片
-              secondary: Image.asset("asserts/images/codelieche-logo-blue.png"),
+              secondary: Image.asset("assets/images/codelieche-logo-blue.png"),
               // 选中的时候，文本颜色是否跟随改变
               selected: this.name == "编程列车",
             ),

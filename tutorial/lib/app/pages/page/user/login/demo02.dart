@@ -128,7 +128,7 @@ class _UserLoginDemo02State extends State<UserLoginDemo02> {
                       // height: ScreenAdapter.setHeight(80),
                       height: 80,
                       padding: EdgeInsets.only(bottom: 15),
-                      child: Image.asset("asserts/images/codelieche-blue.png"),
+                      child: Image.asset("assets/images/codelieche-blue.png"),
                     ),
 
                     // 用户名

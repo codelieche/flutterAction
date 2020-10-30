@@ -33,7 +33,7 @@ class _SnackBarBaseDemoState extends State<SnackBarBaseDemo> {
             onPressed: () {
               Scaffold.of(context).showSnackBar(SnackBar(
                 backgroundColor: Colors.pinkAccent,
-                content: Image.asset("asserts/images/codelieche-blue.png"),
+                content: Image.asset("assets/images/codelieche-blue.png"),
               ));
             },
             child: Text("弹出图片"),

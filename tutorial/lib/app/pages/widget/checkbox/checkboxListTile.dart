@@ -219,7 +219,7 @@ class _CheckBoxListTileBaseDemoPageState
               },
               title: Text("编程列车"),
               subtitle: Text("www.codelieche.com"),
-              secondary: Image.asset("asserts/images/codelieche-logo-blue.png"),
+              secondary: Image.asset("assets/images/codelieche-logo-blue.png"),
             )
           ],
         ),
@@ -265,7 +265,7 @@ class _CheckBoxListTileBaseDemoPageState
               },
               title: Text("编程列车"),
               subtitle: Text("www.codelieche.com"),
-              secondary: Image.asset("asserts/images/codelieche-logo-blue.png"),
+              secondary: Image.asset("assets/images/codelieche-logo-blue.png"),
               selected: this.name == "编程列车",
             )
           ],

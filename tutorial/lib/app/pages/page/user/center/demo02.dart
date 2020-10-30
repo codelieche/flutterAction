@@ -33,7 +33,7 @@ class _UserCenterDemo02State extends State<UserCenterDemo02> {
                           width: 60,
                           height: 60,
                           // child: Image.asset(
-                          //   "asserts/images/codelieche-logo-blue.png",
+                          //   "assets/images/codelieche-logo-blue.png",
                           //   width: 70,
                           //   height: 70,
                           // ),

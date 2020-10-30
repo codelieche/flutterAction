@@ -54,6 +54,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.8.0"
+
+# flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/icon/icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -73,9 +80,9 @@ flutter:
 
   # 资源文件
   assets:
-    - asserts/images/codelieche-blue.png
-    - asserts/images/codelieche-logo-blue.png
-    - asserts/images/loading.gif
+    - assets/images/codelieche-blue.png
+    - assets/images/codelieche-logo-blue.png
+    - assets/images/loading.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

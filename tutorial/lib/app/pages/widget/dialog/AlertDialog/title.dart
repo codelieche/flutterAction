@@ -45,7 +45,7 @@ class _AlertDialogTitleDemoState extends State<AlertDialogTitleDemo> {
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  title: Image.asset("asserts/images/codelieche-blue.png"),
+                  title: Image.asset("assets/images/codelieche-blue.png"),
                   content: Text("内容"),
                 );
               },

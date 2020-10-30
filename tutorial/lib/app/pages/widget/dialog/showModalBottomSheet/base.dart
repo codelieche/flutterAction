@@ -73,13 +73,13 @@ class _ShowModalBottomSheetBaseDemoState
                               Container(
                                 height: 50,
                                 child: Image.asset(
-                                    "asserts/images/codelieche-blue.png"),
+                                    "assets/images/codelieche-blue.png"),
                               ),
                               SizedBox(height: 20),
                               Container(
                                 height: 50,
                                 child: Image.asset(
-                                    "asserts/images/codelieche-logo-blue.png"),
+                                    "assets/images/codelieche-logo-blue.png"),
                               ),
                               Divider()
                             ],
