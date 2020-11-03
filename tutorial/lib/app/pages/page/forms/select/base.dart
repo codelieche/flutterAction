@@ -17,7 +17,7 @@ class _SelecteValuesBaseDemoState extends State<SelecteValuesBaseDemo> {
     // 准备示例items
     List<SelectedValueItem> items = [];
     for (var i = 0; i < 10; i++) {
-      var item = SelectedValueItem(value: i, label: "Value: $i");
+      var item = SelectedValueItem(value: i, title: "Value: $i");
       items.add(item);
     }
     Widget body = Container(

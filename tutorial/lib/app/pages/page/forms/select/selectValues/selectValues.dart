@@ -166,7 +166,8 @@ class _BaseSelectValuesWidgetState extends State<BaseSelectValuesWidget> {
                 }
               }
             },
-            title: Text(item.label),
+            title: Text(item.title),
+            subtitle: item.subTitle != null ? Text(item.subTitle) : null,
           );
         },
         itemCount: dataSource.length,
@@ -194,7 +195,8 @@ class _BaseSelectValuesWidgetState extends State<BaseSelectValuesWidget> {
               });
             },
             // title: Text(item.label, style: TextStyle(fontSize: 14)),
-            title: Text(item.label),
+            title: Text(item.title),
+            subtitle: item.subTitle != null ? Text(item.subTitle) : null,
           );
         },
         itemCount: dataSource.length,

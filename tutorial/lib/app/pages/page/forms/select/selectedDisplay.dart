@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // 示例
-import 'selectedDisplay/base.dart';
-import 'selectedDisplay/selectedValues.dart';
+import 'selectedDisplay/baseDemo.dart';
+import 'selectedDisplay/selectedValuesDemo.dart';
 
 class SelectedValuesDisplayDemoPage extends StatefulWidget {
   SelectedValuesDisplayDemoPage({Key key}) : super(key: key);

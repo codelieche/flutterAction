@@ -20,7 +20,7 @@ class _SelectedModalBottomSheetDemoState
     List<SelectedValueItem> items = List.generate(10, (index) {
       return SelectedValueItem(
         value: index + 1,
-        label: "选项 Value：${index + 1}",
+        title: "选项 Value：${index + 1}",
       );
     });
 

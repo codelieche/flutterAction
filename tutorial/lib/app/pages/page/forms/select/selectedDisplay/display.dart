@@ -19,6 +19,8 @@ class DisplaySelectedValues extends StatefulWidget {
   final Color borderColor;
   final Color backgroundColor;
   final Function(dynamic values) callback; // 回调函数【重点】
+  final double displayFontSize; // 展示的文字大小
+  final String displayWidgetName; // 展示组件名称，后面优化
   DisplaySelectedValues({
     Key key,
     @required this.items,
@@ -30,6 +32,8 @@ class DisplaySelectedValues extends StatefulWidget {
     this.backgroundColor = Colors.white,
     this.callback,
     this.isMultiple = false,
+    this.displayFontSize = 14.0,
+    this.displayWidgetName = "button",
   }) : super(key: key);
 
   @override
@@ -134,7 +138,7 @@ class _DisplaySelectedValuesState extends State<DisplaySelectedValues> {
         if (values is List && values.indexOf(item.value) >= 0) {
           // 添加
           itemsWidget.add(SelectedValueItemDisplayLabel(
-            label: item.label,
+            label: item.title,
             borderColor: widget.borderColor,
             backgroundColor: widget.backgroundColor,
           ));
@@ -152,33 +156,54 @@ class _DisplaySelectedValuesState extends State<DisplaySelectedValues> {
         );
       }
     } else {
+      // 单选值
       for (var item in dataSource) {
         if (item.value == values) {
           // 渲染组件
-          selectedValuesWidget = Container(
-            margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            child: OutlineButton(
-              onPressed: this.showBottomSheet,
-              child: Container(
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text("${item.label}"),
-                    ),
-                    Positioned(
-                      right: 0,
-                      child: Icon(
-                        Icons.keyboard_arrow_down,
-                        size: 14,
-                      ),
-                    ),
-                  ],
+          if (widget.displayWidgetName == "text") {
+            selectedValuesWidget = InkWell(
+              onTap: this.showBottomSheet,
+              child: Text(
+                "${item.title}",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: widget.displayFontSize,
                 ),
               ),
-            ),
-          );
+            );
+          } else {
+            selectedValuesWidget = Container(
+              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              child: OutlineButton(
+                onPressed: this.showBottomSheet,
+                child: Container(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: Text(
+                          "${item.title}",
+                          style: TextStyle(
+                            fontSize: widget.displayFontSize,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        right: 0,
+                        child: Icon(
+                          Icons.keyboard_arrow_down,
+                          size: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }
+
           // 跳出选项
           break;
         }

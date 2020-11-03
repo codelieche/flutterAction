@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tutorial/app/components/items/title.dart';
 
 import '../selectValues/models.dart';
+import 'apiDisplay.dart';
 import 'display.dart';
 
 class SelectedValueDisplayModelDemo extends StatefulWidget {
@@ -17,7 +18,11 @@ class _SelectedValueDisplayModelDemoState
   @override
   Widget build(BuildContext context) {
     List<SelectedValueItem> items = List.generate(10, (index) {
-      return SelectedValueItem(value: index + 1, label: "Value: ${index + 1}");
+      return SelectedValueItem(
+        value: index + 1,
+        title: "Value: ${index + 1}",
+        subTitle: "sub title ${index + 1}",
+      );
     });
 
     dynamic values = [];
@@ -94,6 +99,30 @@ class _SelectedValueDisplayModelDemoState
               },
             ),
           ),
+
+          Divider(),
+
+          // ApiListDataDisplay
+          SimpleTitleWidget(
+            title: "根据API设置SelectedValue",
+            description: "ApiListDataDisplaySelectedValues",
+          ),
+
+          Container(
+            child: ApiListDataDisplaySelectedValues(
+              url: "http://kanban.codelieche.com/api/v1/config/menu/list",
+              valueKey: "id",
+              titleKey: "title",
+              subTitleKey: "key",
+              borderColor: Colors.grey[200],
+              backgroundColor: Colors.pinkAccent.withOpacity(0.5),
+              isMultiple: false,
+              displayWidgetName: "button",
+              callback: (values) {
+                print(values);
+              },
+            ),
+          )
         ],
       ),
     );
