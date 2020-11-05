@@ -6,6 +6,7 @@ import 'simple.dart';
 import 'layout.dart';
 import 'form.dart';
 import 'complex.dart';
+import 'other.dart';
 
 class WidgetIndexPage extends StatefulWidget {
   @override
@@ -42,7 +43,7 @@ class _WidgetIndexPageState extends State<WidgetIndexPage>
         text: "复合组件",
       ),
       Tab(
-        text: "测试组件",
+        text: "其它",
       )
     ];
 
@@ -110,7 +111,7 @@ class _WidgetIndexPageState extends State<WidgetIndexPage>
           LayoutWidgetIndexPage(), // 布局组件
           FormWidgetIndexPage(), // 表单组件
           ComplexWidgetIndexPage(), // 复杂组件
-          BaseComponentIndexPage(),
+          OtherWidgetIndexPage(), // 其它组件
         ],
         controller: _tabController,
       ),
@@ -120,37 +121,6 @@ class _WidgetIndexPageState extends State<WidgetIndexPage>
     return DefaultTabController(
       length: _tabs.length,
       child: scaffold,
-    );
-  }
-}
-
-class BaseComponentIndexPage extends StatefulWidget {
-  @override
-  _BaseComponentIndexPageState createState() => _BaseComponentIndexPageState();
-}
-
-class _BaseComponentIndexPageState extends State<BaseComponentIndexPage> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Column(
-          children: [
-            Container(
-              height: 400,
-              color: Colors.pinkAccent,
-            ),
-            Container(
-              height: 400,
-              color: Colors.lightBlue,
-            ),
-            Container(
-              height: 400,
-              color: Colors.yellow,
-            )
-          ],
-        )
-      ],
     );
   }
 }

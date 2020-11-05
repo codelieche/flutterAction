@@ -45,6 +45,16 @@ class _FormWidgetIndexPageState extends State<FormWidgetIndexPage> {
         ),
         Divider(height: 3),
 
+        // Switch相关的组件
+        ListTile(
+          leading: Icon(Icons.arrow_right),
+          title: Text("Switch"),
+          onTap: () {
+            Navigator.pushNamed(context, "/widget/switch/index");
+          },
+        ),
+        Divider(height: 3),
+
         // 消息/警告
         SimpleTitleWidget(title: "消息/警告"),
         Wrap(

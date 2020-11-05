@@ -110,10 +110,10 @@ class _SelectedValueDisplayModelDemoState
 
           Container(
             child: ApiListDataDisplaySelectedValues(
-              url: "http://kanban.codelieche.com/api/v1/config/menu/list",
-              valueKey: "id",
-              titleKey: "title",
-              subTitleKey: "key",
+              url: "https://api.github.com/repos/flutter/flutter/branches",
+              valueKey: "name",
+              titleKey: "name",
+              subTitleKey: "name",
               borderColor: Colors.grey[200],
               backgroundColor: Colors.pinkAccent.withOpacity(0.5),
               isMultiple: false,

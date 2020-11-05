@@ -1,8 +1,7 @@
-/**
- * 组件示例相关的路由
- * 前缀：/widget/
- */
+/// 组件示例相关的路由
+/// 前缀：/widget/
 import 'package:tutorial/app/pages/widget/column/index.dart';
+import 'package:tutorial/app/pages/widget/other.dart';
 
 // 引入/widget相关的页面
 
@@ -39,6 +38,10 @@ import 'provider/index.dart';
 import 'textField/index.dart';
 import 'radio/index.dart';
 import 'checkbox/index.dart';
+import 'switch/index.dart';
+
+// 其它
+import 'other/socket/index.dart';
 
 Map<String, Function> widgetRoutes = {
   // 基础组件：simple
@@ -75,4 +78,9 @@ Map<String, Function> widgetRoutes = {
   "/widget/textfield/index": (context) => TextFieldIndexDemoPage(),
   "/widget/radio/index": (context) => RadioIndexDemoPage(),
   "/widget/checkbox/index": (context) => CheckBoxIndexDemoPage(),
+  "/widget/switch/index": (context) => SwitchDemoIndexPage(),
+
+  // 其它
+  "/widget/other/index": (context) => OtherWidgetIndexPage(),
+  "/widget/other/socket/index": (context) => SocketDemoIndexPage(),
 };

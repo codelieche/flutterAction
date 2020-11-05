@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tutorial/app/utils/fetchApi/base.dart';
 import 'package:tutorial/app/utils/screen/adapter.dart';
+import 'package:tutorial/app/utils/storage/shareData.dart';
 import 'package:tutorial/app/variables.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -16,6 +17,7 @@ class UserLoginDemo01 extends StatefulWidget {
 class _UserLoginDemo01State extends State<UserLoginDemo01> {
   String username; // 用户名
   String password; // 用户密码
+  bool savePassword = true; // 是否保存密码, 默认保存
   bool isRequesting = false; // 是否正在发起请求
 
   // focus: 设置focus和取消focus需要用到
@@ -25,6 +27,24 @@ class _UserLoginDemo01State extends State<UserLoginDemo01> {
   // TextInput的控制器，提交登录的时候，通过控制器获取输入的值
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    this.getUsernamePassword();
+  }
+
+  getUsernamePassword() async {
+    username = await getSharedPreferencesString("username");
+    password = await getSharedPreferencesString("password");
+    print("获取用户名和密码：$username ---> $password");
+    _usernameController.text = username;
+    _passwordController.text = password;
+    setState(() {
+      username = username;
+      password = password;
+    });
+  }
 
   // 处理登录请求函数
   handleLoginSubmmit() async {
@@ -78,6 +98,12 @@ class _UserLoginDemo01State extends State<UserLoginDemo01> {
         data: {"username": username, "password": password},
       );
 
+      // 判断是否记住账号密码
+      if (savePassword) {
+        print("需要保存账号和密码");
+        setSharePreferencesString("username", username);
+        setSharePreferencesString("password", password);
+      }
       // 对结果进行判断:
       print(response.data);
       // print(response.headers);
@@ -181,11 +207,55 @@ class _UserLoginDemo01State extends State<UserLoginDemo01> {
                         children: [
                           Align(
                             alignment: Alignment.centerLeft,
-                            child: FlatButton(
-                              onPressed: null,
-                              child: Text("忘记密码"),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 30,
+                                  child: Checkbox(
+                                    value: this.savePassword == true,
+                                    onChanged: (checked) {
+                                      print(
+                                          "checked: $checked, savePassword:$savePassword");
+                                      if (savePassword) {
+                                        // 再次点击就是不保存了，清空用户名信息
+                                        setSharePreferencesString(
+                                            "username", "");
+                                        setSharePreferencesString(
+                                            "password", "");
+                                      }
+                                      setState(() {
+                                        savePassword = checked;
+                                      });
+                                    },
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    if (savePassword) {
+                                      // 再次点击就是不保存了，清空用户名信息
+                                      setSharePreferencesString("username", "");
+                                      setSharePreferencesString("password", "");
+                                    }
+                                    setState(() {
+                                      savePassword = !savePassword;
+                                    });
+                                  },
+                                  child: Text(
+                                    "保存密码?",
+                                    style: TextStyle(
+                                        fontSize: 13, color: Colors.grey),
+                                  ),
+                                )
+                              ],
                             ),
                           ),
+                          // Align(
+                          //   alignment: Alignment.centerLeft,
+                          //   child: FlatButton(
+                          //     onPressed: null,
+                          //     child: Text("忘记密码"),
+                          //   ),
+                          // ),
                           Align(
                             alignment: Alignment.centerRight,
                             child: FlatButton(

@@ -50,6 +50,7 @@ dependencies:
   flutter_slidable: ^0.5.7
   cached_network_image: ^2.3.2+1
   bot_toast: ^3.0.4
+  web_socket_channel: ^1.1.0
 
 dev_dependencies:
   flutter_test:
